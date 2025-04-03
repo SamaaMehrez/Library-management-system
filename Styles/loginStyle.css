@@ -1,0 +1,83 @@
+body {
+    font-family: "Trirong", serif;
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box;*/
+    background: #4fb5c2;
+
+}
+.navbar {
+    font-family: "Trirong", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #022334;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.image{
+    width:250px;
+    height: 60px;
+}
+.login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px gray;
+    text-align: center;
+    width: 500px;
+    height: 280px;
+}
+.title{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 0;
+}
+input[type="email"], input[type="password"]{
+    width: 80%;
+    padding: 10px 10px 10px 30px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #e4e3e3;
+}
+input[type="submit"]{
+    width:50%;
+    background-color: #05496c;
+    color: white;
+    height: 25px;
+    cursor: pointer;
+}
+.email::before{
+    content: "✉";
+    font-size: 25px;
+    position: absolute;
+    margin-top: 1px;
+    padding: 4px;
+    color: #3498db;
+
+}
+.pass::before{
+    content: "🔒";
+    font-size: 20px;
+    position: absolute;
+    margin-top: 4px;
+    padding: 4px;
+}
+.end{
+    margin-top: 9px;
+}
+.end a{
+    padding-left: 2px;
+    color: #0b505e;
+}

@@ -1,0 +1,39 @@
+body{
+    font-family: "Trirong", serif;
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box;*/
+    background: #4fb5c2;
+
+}
+.navbar {
+    font-family: "Trirong", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #022334;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.image{
+    width:250px;
+    height: 60px;
+}
+
+#Acs{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+#Acs::before{
+    content: "👤";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: transparent;
+    transition: width .3s;
+}
