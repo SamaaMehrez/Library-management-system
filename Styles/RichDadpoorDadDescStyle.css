@@ -136,7 +136,7 @@ pre{
 }
 #Rating{
     font-family: "Trirong", serif;
-    font-size: 20px;
+    font-size: 30px;
     text-align: left;
     font-weight: bold;
     margin-top: 20px;
@@ -147,3 +147,43 @@ pre{
 a{
     text-decoration: none;
 }
+.book-description-container {
+    background: linear-gradient(to right, rgba(16, 42, 46, 0.8) 10%, rgba(31, 57, 62, 0.8) 50%, rgba(71, 97, 112, 0.8) 65%);
+    background-size: cover;
+    padding: 5px;
+    margin-top: 80px;
+    border-radius: 60px;
+    border: 30px solid #022334;
+    flex: fixed;
+}
+
+.Author-desc{
+    font-family: "Trirong", serif;
+    font-size: 25px;
+    color: white;
+    text-align: right;
+    margin-top: -420px;
+    margin-right: 500px;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+.Author-desc-i{
+    font-family: "Trirong", serif;
+    font-size: 20px;
+    width: auto; 
+    height: auto;
+    margin-left: 720px;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+.Author-image{
+    width: 200px;
+    height: 300px;
+    margin: 70px;
+    border-radius: 20px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    margin-top: -360px;
+    margin-left: 500px;
+}
+
