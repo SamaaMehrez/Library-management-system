@@ -87,7 +87,7 @@ body{
     display: flex;
     gap: 20px; 
     overflow: hidden;
-    width: 400px; 
+    width: 900px; 
 
 }
 
@@ -141,4 +141,5 @@ body{
     gap: 20px; 
     overflow: hidden;
     flex-wrap: wrap;
+    justify-content: center;
 }
