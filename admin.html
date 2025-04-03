@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin-Book Management</title>
+  <link rel="stylesheet" href="Styles/adminStyle.css">
+</head>
+<body>
+<nav class="navbar">
+  <a href="home.html"><img class="image" src="Images/logo.jpg" alt="Website Logo"></a>
+</nav>
+
+<div class="container">
+  <h1>Book Management System</h1>
+  <div class="tab-buttons">
+    <a href="#Add"><button class="tab-btn active">Add New Book</button></a>
+    <a href="viewBooks.html"><button class="tab-btn" >View Books</button></a>
+    <a href="#Edit"><button class="tab-btn" >Edit Book</button></a>
+  </div>
+
+  <!-- Add New Book Section -->
+  <div class="section" id="Add">
+    <h2>Add New Book</h2>
+    <form method="post">
+      <div class="form-group">
+        <label for="book-id">Book ID:</label>
+        <input type="text" id="book-id" name="book-id" required>
+      </div>
+      <div class="form-group">
+        <label for="book-name">Book Name:</label>
+        <input type="text" id="book-name" name="book-name" required>
+      </div>
+      <div class="form-group">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="">Select Category</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Science" selected>Science</option>
+          <option value="History">History</option>
+          <option value="Biography">Biography</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+      </div>
+      <button type="submit">Add Book</button>
+    </form>
+  </div>
+
+  <!-- View Books Section -->
+
+  <!-- Edit Book Section (would be on a separate page in real implementation) -->
+  <div class="section" id="Edit">
+    <h2>Edit Book</h2>
+    <p>When you click "Edit" on a book, you would be taken to a separate edit page with a form pre-filled with the book's details.</p>
+    <p>Example edit page would look like:</p>
+    <form method="post">
+      <div class="form-group">
+        <label for="edit-book-id">Book ID:</label>
+        <input type="text" id="edit-book-id" name="book-id">
+      </div>
+      <div class="form-group">
+        <label for="edit-book-name">Book Name:</label>
+        <input type="text" id="edit-book-name" name="book-name"  required>
+      </div>
+      <div class="form-group">
+        <label for="edit-author">Author:</label>
+        <input type="text" id="edit-author" name="author" required>
+      </div>
+      <div class="form-group">
+        <label for="edit-category">Category:</label>
+        <select id="edit-category" name="category" required>
+          <option value="Fiction" >Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Science">Science</option>
+          <option value="History">History</option>
+          <option value="Biography">Biography</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="edit-description">Description:</label>
+        <textarea id="edit-description" name="description" rows="4" required></textarea>
+      </div>
+      <button type="submit">Update Book</button>
+      <a href="admin.html" class="btn">Cancel</a>
+    </form>
+  </div>
+</div>
+</body>
+</html>

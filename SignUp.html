@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+  <link rel="stylesheet" href="Styles/signupStyle.css">
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const userType = document.querySelector('input[name="userType"]:checked').value;
+
+      if (userType === "Admin") {
+        window.location.href = "admin.html";
+      } else if (userType === "User") {
+        window.location.href = "user.html";
+      }
+    }
+  </script>
+</head>
+<body>
+<nav class="navbar">
+  <a href="home.html"><img class="image" src="Images/logo.jpg" alt="none"></a>
+</nav>
+
+<form action="" method="post" target="_blank" class="login" onsubmit="handleLogin(event)">
+  <p class="title">Create New Account</p>
+  <div class="inputs">
+<!--    <label>Username</label>-->
+<!--    <br>-->
+    <label class="name">
+      <input type="text" placeholder="Username" required>
+    </label>
+    <br>
+    <br>
+<!--    <label>Email</label>-->
+<!--    <br>-->
+    <label class="email">
+      <input type="email"  placeholder="Email" required>
+    </label>
+    <br>
+    <br>
+<!--    <label>Password</label>-->
+<!--    <br>-->
+    <label class="pass">
+      <input type="password" placeholder="Password"  minlength="8" maxlength="12" required>
+    </label>
+    <br>
+    <br>
+<!--    <label> Confirm Password</label>-->
+<!--    <br>-->
+    <label class="pass">
+      <input type="password" placeholder="Confirm Password"  minlength="8" maxlength="12" required>
+    </label>
+    <br>
+    <br>
+    <div>
+      <span>Choose your Role:</span>
+      <input id="admin" type="radio" name="userType" value="Admin">
+      <label for="admin">Admin</label>
+
+      <input id="user" type="radio" name="userType" value="User">
+      <label for="user">User</label>
+    </div>
+
+    <br>
+    <input type="submit" value="Sign Up">
+  </div>
+  <div class="end">
+  <span>Already have an account? </span>
+  <a href="login.html"><span>Log in</span></a>
+  </div>
+</form>
+</body>
+</html>
