@@ -141,5 +141,5 @@ body{
     gap: 20px; 
     overflow: hidden;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
 }
