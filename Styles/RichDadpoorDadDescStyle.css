@@ -1,0 +1,149 @@
+body{
+    font-family: "Trirong", serif;
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box;*/
+    background: linear-gradient(to right, #7fdeee 10%, #015060 50% , #032e46 65%);
+    background-size: cover;
+
+}
+.navbar {
+    font-family: "Trirong", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #022334;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.image{
+    width:250px;
+    height: 60px;
+}
+
+.Navopt{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+#Acs::before{
+    content: "🙇";
+    position: absolute;
+    right: 120px;
+    margin-top:-8px;
+    padding: 2px;
+}
+#Search{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    right: 160px;
+}
+#Search::before{
+    content: "🔍";
+    position: absolute;
+    right: 150px;
+    margin-top:-8px;
+    padding: 2px;
+}
+#Search:hover{
+    color: #7fdeee;
+    transition: 0.5s;
+}
+.Navopt:hover{
+    color: #7fdeee;
+    transition: 0.5s;
+}
+#Home{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    right: 350px;
+}
+#Home::before{
+    content: "🏠";
+    position: absolute;
+    right: 50px;
+    margin-top:-8px;
+    padding: 2px;
+}
+#Home:hover{
+    color: #7fdeee;
+    transition: 0.5s;
+}
+.book-image{
+    width: 400px;
+    height: 500px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.book-title{
+    font-family: "Trirong", serif;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    margin-top:-500px;
+    margin-left: -450px;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+.General-information{
+    font-family: "Trirong", serif;
+    font-size: 28px;
+    color: white;
+    text-align: left;
+    margin-left: 450px;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+pre{
+    font-family: "Trirong", serif;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+.book-description-title{
+    font-family: "Trirong", serif;
+    font-size: 25px;
+    color: white;
+    text-align: left;
+    margin-top: 80px;
+    margin-left: 35px;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+.book-description{
+    font-family: "Trirong", serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 35px;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+#Rating{
+    font-family: "Trirong", serif;
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 35px;
+    color: green;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+a{
+    text-decoration: none;
+}
