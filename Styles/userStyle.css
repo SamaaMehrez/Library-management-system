@@ -3,7 +3,8 @@ body{
     margin: 0;
     padding: 0;
     /*box-sizing: border-box;*/
-    background: #4fb5c2;
+    background: linear-gradient(to right, #7fdeee 10%, #015060 50% , #032e46 65%);
+    background-size: cover;
 
 }
 .navbar {
@@ -22,18 +23,122 @@ body{
     height: 60px;
 }
 
-#Acs{
+.Navopt{
     background-color: transparent;
     color: white;
     border: none;
     font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
 }
 #Acs::before{
-    content: "👤";
-    display: block;
-    width: 0%;
-    height: 2px;
-    background: transparent;
-    transition: width .3s;
+    content: "🙇";
+    position: absolute;
+    right: 120px;
+    margin-top:-8px;
+    padding: 2px;
+}
+#Search{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    right: 160px;
+}
+#Search::before{
+    content: "🔍";
+    position: absolute;
+    right: 150px;
+    margin-top:-8px;
+    padding: 2px;
+}
+#Search:hover{
+    color: #7fdeee;
+    transition: 0.5s;
+}
+.Navopt:hover{
+    color: #7fdeee;
+    transition: 0.5s;
+}
+#Header1{
+    font-family: "Trirong", serif;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    
+}
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-self: center;
+
+}
+
+.slider {
+    display: flex;
+    gap: 20px; 
+    overflow: hidden;
+    width: 400px; 
+
+}
+
+.book-item {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+}
+
+.book-item img {
+    width: 100px; 
+    border-radius: 5px;
+}
+
+.book-label {
+    margin-top: 5px; 
+    font-size: 14px;
+    color: white; 
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
+
+.Books{
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+    flex-basis: calc(100% / 7 - 20px); 
+    max-width: calc(100% / 7 - 20px); 
+    box-sizing: border-box; 
+}
+.Books img{
+    width: 200px; 
+    border-radius: 5px;
+}
+.Books-label {
+    margin-top: 5px; 
+    font-size: 20px;
+    color: white; 
+}
+.main{
+    display: flex;
+    gap: 20px; 
+    overflow: hidden;
+    flex-wrap: wrap;
 }
