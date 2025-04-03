@@ -108,6 +108,9 @@ body{
     font-size: 14px;
     color: white; 
 }
+div a{
+    text-decoration: none;
+}
 
 .nav-btn {
     background: none;
