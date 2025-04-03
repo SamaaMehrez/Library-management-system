@@ -65,7 +65,7 @@ body{
     color: #7fdeee;
     transition: 0.5s;
 }
-#Header1{
+.Header1{
     font-family: "Trirong", serif;
     display: flex;
     justify-content: center;
