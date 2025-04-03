@@ -154,7 +154,6 @@ a{
     margin-top: 80px;
     border-radius: 60px;
     border: 30px solid #022334;
-    flex: fixed;
 }
 
 .Author-desc{
@@ -162,16 +161,17 @@ a{
     font-size: 25px;
     color: white;
     text-align: right;
-    margin-top: -420px;
-    margin-right: 500px;
+    margin-top: -440px;
+    margin-right: 530px;
     text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+
 }
 .Author-desc-i{
     font-family: "Trirong", serif;
     font-size: 20px;
-    width: auto; 
+    width: auto;
     height: auto;
-    margin-left: 720px;
+    margin-left: 590px;
     color: white;
     text-align: left;
     font-weight: bold;
@@ -179,11 +179,10 @@ a{
 }
 .Author-image{
     width: 200px;
-    height: 300px;
-    margin: 70px;
+    height: 250px;
     border-radius: 20px;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    margin-top: -360px;
-    margin-left: 500px;
+    margin-top: -400px;
+    margin-bottom: 140px;
+    margin-left: 370px;
 }
-
