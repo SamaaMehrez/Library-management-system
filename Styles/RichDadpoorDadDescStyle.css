@@ -33,33 +33,37 @@ body{
     text-decoration: none;
 }
 #Acs::before{
-    content: "🙇";
+    /*content: "👤";*/
     position: absolute;
     right: 120px;
     margin-top:-8px;
     padding: 2px;
 }
-#Search{
-    background-color: transparent;
-    color: white;
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    width: 450px;
+    border: 1px solid #ccc;
+}
+
+#search-bar {
     border: none;
-    font-size: 20px;
-    font-weight: bold;
+    outline: none;
+    padding: 8px;
+    width: 100%;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+#search-btn {
+    background: none;
+    border: none;
     cursor: pointer;
-    text-decoration: none;
-    position: absolute;
-    right: 160px;
-}
-#Search::before{
-    content: "🔍";
-    position: absolute;
-    right: 150px;
-    margin-top:-8px;
-    padding: 2px;
-}
-#Search:hover{
-    color: #7fdeee;
-    transition: 0.5s;
+    padding: 5px;
 }
 .Navopt:hover{
     color: #7fdeee;
@@ -74,10 +78,10 @@ body{
     cursor: pointer;
     text-decoration: none;
     position: absolute;
-    right: 350px;
+    right: 150px;
 }
 #Home::before{
-    content: "🏠";
+    /*content: "🏠";*/
     position: absolute;
     right: 50px;
     margin-top:-8px;
