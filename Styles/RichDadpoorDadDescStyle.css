@@ -148,9 +148,7 @@ pre{
     color: green;
     text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
 }
-a{
-    text-decoration: none;
-}
+
 .book-description-container {
     background: linear-gradient(to right, rgba(16, 42, 46, 0.8) 10%, rgba(31, 57, 62, 0.8) 50%, rgba(71, 97, 112, 0.8) 65%);
     background-size: cover;
@@ -260,4 +258,8 @@ a{
     margin-left: 35px;
     color: rgb(255, 0, 0);
     text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
 }
