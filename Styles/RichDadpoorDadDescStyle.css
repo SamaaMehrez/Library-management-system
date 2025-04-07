@@ -138,7 +138,7 @@ pre{
     margin-left: 35px;
     text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
 }
-#Rating{
+.Ratingh{
     font-family: "Trirong", serif;
     font-size: 30px;
     text-align: left;
@@ -189,4 +189,75 @@ a{
     margin-top: -400px;
     margin-bottom: 140px;
     margin-left: 370px;
+}
+
+.border{
+    border: 1px solid #000000;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 35px;
+    background-color: rgb(0, 0, 0);
+    color: black;
+    font-family: "Trirong", serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.StatusN{
+    font-family: "Trirong", serif;
+    font-size: 20px;
+    width: auto;
+    height: auto ;
+    margin-left: 30px;
+    color: rgb(235, 4, 4);
+    text-align: left;
+    font-weight: bold;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+.StatusA{
+    font-family: "Trirong", serif;
+    font-size: 20px;
+    width: auto;
+    height: auto ;
+    margin-left: 30px;
+    color: rgb(4, 249, 77);
+    text-align: left;
+    font-weight: bold;
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+.borrow-button{
+    background-color: #67b3c0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-top: -5px;
+    box-shadow: #000000 0px 0px 10px;
+}
+.Ratingm{
+    font-family: "Trirong", serif;
+    font-size: 30px;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 35px;
+    color: rgb(255, 183, 0);
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+.Ratingl{
+    font-family: "Trirong", serif;
+    font-size: 30px;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 35px;
+    color: rgb(255, 0, 0);
+    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
 }
