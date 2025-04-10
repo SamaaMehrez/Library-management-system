@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-  <link rel="stylesheet" href="Styles/signupStyle.css">
+  <link rel="stylesheet" href="Styles/SignupStyle.css">
   <script>
     function handleLogin(event) {
       event.preventDefault();
@@ -20,7 +20,11 @@
 </head>
 <body>
 <nav class="navbar">
-  <a href="home.html"><img class="image" src="Images/logo.jpg" alt="none"></a>
+  <a href="Home.html"><img class="image" src="Images/logo.jpg" alt="none"></a>
+    <div class="tabs">
+        <span><a href="Home.html#about">About</a></span>
+        <span><a href="ContactUs.html">Contact us</a></span>
+    </div>
 </nav>
 
 <form action="" method="post" target="_blank" class="login" onsubmit="handleLogin(event)">
@@ -68,7 +72,7 @@
   </div>
   <div class="end">
   <span>Already have an account? </span>
-  <a href="login.html"><span>Log in</span></a>
+  <a href="Login.html"><span>Log in</span></a>
   </div>
 </form>
 </body>
