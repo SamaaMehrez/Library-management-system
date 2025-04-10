@@ -2,7 +2,6 @@ body {
     font-family: "Trirong", serif;
     margin: 0;
     padding: 0;
-    /*box-sizing: border-box;*/
     background: #4fb5c2;
 
 }
@@ -15,6 +14,17 @@ body {
     padding: 15px;
     color: white;
     font-weight: bold;
+}
+.navbar .tabs span a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.navbar .tabs span a:hover {
+    color: #7fdeee;
+    transition: 0.5s;
 }
 
 .image{
