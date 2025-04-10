@@ -1,0 +1,105 @@
+body {
+    font-family: "Trirong", serif;
+    margin: 0;
+    padding: 0;
+    background: #4fb5c2;
+    text-align: center;
+}
+
+.navbar {
+    font-family: "Trirong", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #022334;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar .tabs span a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.navbar .tabs span a:hover {
+    color: #7fdeee;
+    transition: 0.5s;
+}
+
+.image{
+    width:250px;
+    height: 60px;
+}
+
+.bookshelf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.shelf {
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    width: 80%;
+    position: relative;
+    display: flex;
+}
+
+.shelf::before {
+    font-size: 20px;
+    position: absolute;
+    bottom: -15px;
+    left: 5%;
+    width: 90%;
+    height: 20px;
+    background: linear-gradient(to left,  #015060, #022334);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    transform: perspective(10px) rotateX(5deg);
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    color:white ;
+    padding: 3px;
+}
+
+.shelfFav::before { content: "Favorite Books"; }
+.shelfBorrowed::before { content: "Borrowed Books"; }
+
+.book {
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.book img {
+    width: 120px;
+    height: 160px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.book:hover {
+    transform: scale(1.1);
+}
+
+.category-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.category-bar span  {
+    color: #022334;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
