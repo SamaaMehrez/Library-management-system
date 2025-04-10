@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Details</title>
+    <link rel="stylesheet" href="Styles/BooksDetailsStyle.css">
+<script>
+        function ChangeImage(button) {
+        let img = button.querySelector('img');
+        if (img.src.includes('like.png')) {
+        img.src = 'Images/heart.png';
+    } else {
+        img.src = 'Images/like.png';
+    }
+    }
+
+    function borrowed(button) {
+    button.style.backgroundColor = "green";
+    button.innerHTML = "Borrowed";
+    button.disabled = true;
+
+    let today = new Date();
+    let returnDate = new Date();
+    returnDate.setDate(today.getDate() + 7);
+        let borrowedText = "The book was borrowed on: " + today.toDateString();
+        let returnText = "Please return the book by: " + returnDate.toDateString();
+
+        let message = document.createElement('p');
+        message.innerHTML = borrowedText + "<br>" + returnText;
+        button.parentElement.appendChild(message);
+        message.style.color ="white";
+        message.style.fontFamily="Trirong,serif"
+        message.style.fontSize="20px";
+
+    }
+</script>
+</head>
+<body>
+<nav class="navbar">
+    <a href="Home.html"><img class="image" src="Images/logo.jpg" alt="none"></a>
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search for a book...">
+        <button id="search-btn"><img src="Images/search.png" alt="🔍">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <a class="Navopt" id="Acs" href="UserAccount.html">My Account</a>
+    <a class="Navopt" id="Home" href="User.html">Home</a>
+</nav>
+<Img src="Images/Rich dad and poor dad.jpg" id="RichDadAndPoorDad" alt="Rich Dad Poor Dad" class="book-image">
+<pre class="book-title">        Rich Dad Poor Dad</pre>
+<div class="General-information">
+    <ul class="book-info-list">
+        <li class="book-author">Author: </li>
+        <pre>   Robert Kiyosaki</pre>
+        <li class="book-genre">Category: </li>
+        <pre>   Personal Finance</pre>
+        <li class="book-publisher">Publisher: </li>
+        <pre>   Warner Books</pre>
+    </ul>
+    <div class="Author-info">
+        <img class="Author-image" src="Images/Robert Kiyosaki.jpg" alt="Robert Kiyosaki">
+        <h2 class="Author-desc"> About Author</h2>
+        <p class="Author-desc-i">
+            Robert Kiyosaki is an American entrepreneur,
+            businessman, and author.He is best known
+            for his book "Rich Dad Poor Dad," which
+            advocates for financial literacy and independence.
+            Kiyosaki's teachings emphasize the importance of
+            investing in assets,real estate, and entrepreneurship
+            to achieve financial success. He has written
+            several other booksand has created educational
+            games and seminars to promote financial education.</p>
+    </div>
+</div>
+<div class="book-description-container">
+    <h2 class="book-description-title">Description: </h2>
+    <p class="book-description">Rich Dad Poor Dad is a personal finance book written by Robert Kiyosaki. The book advocates for financial literacy, independence, and building wealth through investing in assets, real estate, and entrepreneurship. It contrasts the financial philosophies of Kiyosaki's two "dads": his biological father (poor dad) and the father of his best friend (rich dad). The book emphasizes the importance of financial education and encourages readers to think differently about money and investing.</p>
+    <h2 class="book-description-title">Review: </h2>
+    <p class="book-description">Rich Dad Poor Dad is a thought-provoking book that challenges conventional beliefs about money and investing. Kiyosaki's storytelling approach makes complex financial concepts accessible to readers of all backgrounds. The book encourages readers to take control of their financial future and emphasizes the importance of financial education. While some critics argue that the book oversimplifies certain concepts, its core message of financial independence resonates with many. Overall, it's a must-read for anyone looking to improve their financial literacy and mindset.</p>
+    <h2 class="book-description-title">Rating: </h2>
+    <p class="Ratingh">4.5/5</p>
+    <span class="StatusN">Not Available</span>
+    <button class="fav_btn" onclick="ChangeImage(this)"><img src="Images/like.png" alt="❤️"></button>
+    <br>
+</div>
+<p class="border"></p>
+
+
+
+
+
+
+<Img src="Images/One Hundred Years of Solitude.jpg" id="OneHundredYearsofSolitude" alt="One Hundred Years of Solitude" class="book-image">
+<pre class="book-title">                           One Hundred Years of Solitude</pre>
+<div class="General-information">
+    <ul class="book-info-list">
+        <li class="book-author">Author: </li>
+        <pre>   Gabriel García Márquez</pre>
+        <li class="book-genre">Category: </li>
+        <pre>   Fiction</pre>
+        <pre>   Magical Realism</pre>
+        <li class="book-publisher">Publisher: </li>
+        <p>   Harper</p>
+    </ul>
+    <div class="Author-info">
+        <img class="Author-image" src="Images/Gabriel García Márquez.jpg" alt="Robert Kiyosaki">
+        <h2 class="Author-desc"> About Author</h2>
+        <p class="Author-desc-i">
+            Gabriel García Márquez (1927–2014) was a Colombian
+            novelist, journalist, and Nobel Prize winner, widely
+            regarded as one of the greatest writers of the 20th
+            century. He is best known for pioneering the genre
+            of magical realism, where fantastical elements are
+            woven into realistic settings. His most famous work,
+            One Hundred Years of Solitude, has become a landmark
+            of world literature. Through his writing, García Márquez
+            explored themes of love, solitude, power, and the
+            complexities of Latin American life</p>
+    </div>
+</div>
+<div class="book-description-container">
+    <h2 class="book-description-title">Description: </h2>
+    <p class="book-description">The brilliant, bestselling, landmark novel that tells the story of the Buendia family, and chronicles the irreconcilable conflict between the desire for solitude and the need for love—in rich, imaginative prose that has come to define an entire genre known as "magical realism."</p>
+    <h2 class="book-description-title">Review: </h2>
+    <p class="book-description">Gabriel García Márquez's One Hundred Years of Solitude is a literary masterpiece that stands as a pillar of magical realism, blending the extraordinary with the everyday in a way that feels both dreamlike and profoundly human. The novel traces the rise and fall of the Buendía family in the fictional town of Macondo, capturing the sweeping arcs of history, myth, and emotion across generations.
+
+        What makes this novel brilliant isn't just the poetic prose or the imaginative events—flying carpets, ghosts, plagues of insomnia—but how deeply it explores the human condition. Márquez captures the conflict between solitude and love with remarkable insight, showing how the Buendías, in their pursuit of meaning, knowledge, and passion, often fall victim to isolation and repetition.
+
+        Each character is vividly drawn, yet they often feel like echoes of one another, reinforcing the cyclical nature of time and destiny in the novel. The intergenerational saga is both epic and intimate, weaving personal tragedies with grand allegories of Latin American history.
+
+        Richly layered and stylistically daring, One Hundred Years of Solitude is not just a book—it’s an experience. It demands attention and patience, but the reward is unforgettable: a profound, beautiful meditation on memory, identity, and the inescapable loops of human life.</p>
+    <h2 class="book-description-title">Rating: </h2>
+    <p class='Ratingh'>4.12/5</p>
+    <p class="StatusA">Available</p>
+    <button class="borrow-button"  onclick="borrowed(this)">Borrow</button>
+    <button class="fav_btn" onclick="ChangeImage(this)"><img src="Images/like.png" alt="❤️"></button>
+</div>
+<p class="border"></p>
+
+
+
+
+<Img src="Images/The Great Gatsby.jpg" id="TheGreatGatsby" alt="The Great Gatsby" class="book-image">
+<pre class="book-title">     The Great Gatsby</pre>
+<div class="General-information">
+    <ul class="book-info-list">
+        <li class="book-author">Author: </li>
+        <pre>   F. Scott Fitzgerald</pre>
+        <li class="book-genre">Category: </li>
+        <pre>   Fiction</pre>
+        <pre>   School</pre>
+        <li class="book-publisher">Publisher: </li>
+        <pre>   Scribner</pre>
+    </ul>
+    <div class="Author-info">
+        <img class="Author-image" src="Images/F. Scott Fitzgerald.jpg" alt="Robert Kiyosaki">
+        <h2 class="Author-desc"> About Author</h2>
+        <p class="Author-desc-i">
+            Francis Scott Key Fitzgerald (September 24, 1896 – December 21, 1940)widely known simply as Scott Fitzgerald, was an American novelist, essayist, and short story writer. He is best known for his novels depicting the flamboyance and excess of the Jazz Age, a term he popularized in his short story collection Tales of the Jazz Age. During his lifetime, he published four novels, four story collections, and 164 short stories. Although he achieved temporary popular success and fortune in the 1920s, Fitzgerald received critical acclaim only after his death and is now widely regarded as one of the greatest American writers of the 20th century.</p>
+    </div>
+</div>
+<div class="book-description-container">
+    <h2 class="book-description-title">Description: </h2>
+    <p class="book-description">The novel was inspired by a youthful romance Fitzgerald had with socialite Ginevra King, and the riotous parties he attended on Long Island's North Shore in 1922. Following a move to the French Riviera, Fitzgerald completed a rough draft of the novel in 1924. He submitted it to editor Maxwell Perkins, who persuaded Fitzgerald to revise the work over the following winter. After making revisions, Fitzgerald was satisfied with the text, but remained ambivalent about the book's title and considered several alternatives. Painter Francis Cugat's dust jacket art, named Celestial Eyes, greatly impressed Fitzgerald, and he incorporated its imagery into the novel.</p>
+    <h2 class="book-description-title">Review: </h2>
+    <p class="book-description">The Great Gatsby, F. Scott Fitzgerald’s third book, stands as the supreme achievement of his career. First published in 1925, this quintessential novel of the Jazz Age has been acclaimed by generations of readers. The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted “gin was the national drink and sex the national obsession,” it is an exquisitely crafted tale of America in the 1920s.</p>
+    <h2 class="book-description-title">Rating: </h2>
+    <p class='Ratingm'>3.93/5</p>
+    <span class="StatusN">Not Available</span>
+    <button class="fav_btn" onclick="ChangeImage(this)"><img src="Images/like.png" alt="❤️"></button>
+</div>
+<p class="border"></p>
+
+
+
+
+<Img src="Images/Anna Karenina.jpg" id="AnnaKarenina" alt="Anna Karenina" class="book-image">
+<pre class="book-title">  Anna Karenina</pre>
+<div class="General-information">
+    <ul class="book-info-list">
+        <li class="book-author">Author: </li>
+        <pre>   Leo Tolstoy</pre>
+        <li class="book-genre">Category: </li>
+        <pre>   Fiction</pre>
+        <pre>   Romance</pre>
+        <li class="book-publisher">Publisher: </li>
+        <pre>   Vintage</pre>
+    </ul>
+    <div class="Author-info">
+        <img class="Author-image" src="Images/Leo Tolstoy.jpg" alt="Robert Kiyosaki">
+        <h2 class="Author-desc"> About Author</h2>
+        <p class="Author-desc-i">
+            Count Lev Nikolayevich Tolstoy Russian: Лев Николаевич Толстой,9 September [O.S. 28 August] 1828 – 20 November [O.S. 7 November] 1910), usually referred to in English as Leo Tolstoy, was a Russian writer. He is regarded as one of the greatest and most influential authors of all time.</p>
+    </div>
+</div>
+<div class="book-description-container">
+    <h2 class="book-description-title">Description: </h2>
+    <p class="book-description">Acclaimed by many as the world's greatest novel, Anna Karenina provides a vast panorama of contemporary life in Russia and of humanity in general. In it Tolstoy uses his intense imaginative insight to create some of the most memorable characters in all of literature. Anna is a sophisticated woman who abandons her empty existence as the wife of Karenin and turns to Count Vronsky to fulfil her passionate nature - with tragic consequences. Levin is a reflection of Tolstoy himself, often expressing the author's own views and convictions.
+
+        Throughout, Tolstoy points no moral, merely inviting us not to judge but to watch. As Rosemary Edmonds comments, 'He leaves the shifting patterns of the kaleidoscope to bring home the meaning of the brooding words following the title, 'Vengeance is mine, and I will repay.</p>
+    <h2 class="book-description-title">Review: </h2>
+    <p class="book-description">Anna Karenina by Leo Tolstoy is a classic novel about love, betrayal, and societal expectations. It follows Anna’s tragic affair with Count Vronsky, set against the contrasting life of Levin, a man searching for purpose. Deep, emotional, and thought-provoking.</p>
+    <h2 class="book-description-title">Rating: </h2>
+    <p class='Ratingh'>4.10/5</p>
+    <p class="StatusA">Available</p>
+    <button class="borrow-button" onclick="borrowed(this)" >Borrow</button>
+    <button class="fav_btn" onclick="ChangeImage(this)"><img src="Images/like.png" alt="❤️"></button>
+</div>
+<p class="border"></p>
+
+
+
+<Img src="Images/The Catcher in the Rye.webp" id="TheCatcherintheRye" alt="The Catcher in the Rye" class="book-image">
+<pre class="book-title">              The Catcher in the Rye</pre>
+<div class="General-information">
+    <ul class="book-info-list">
+        <li class="book-author">Author: </li>
+        <pre>   J.D. Salinger</pre>
+        <li class="book-genre">Category: </li>
+        <pre>   Classics</pre>
+        <pre>   Fiction</pre>
+
+        <li class="book-publisher">Publisher: </li>
+        <pre>   Back Bay Books</pre>
+    </ul>
+    <div class="Author-info">
+        <img class="Author-image" src="Images/J.D. Salinger.jpg" alt="Robert Kiyosaki">
+        <h2 class="Author-desc"> About Author</h2>
+        <p class="Author-desc-i">
+            J.D. Salinger's (1919–2010) classic novel of teenage angst and rebellion was first published in 1951. The novel was included on Time's 2005 list of the 100 best English-language novels written since 1923. It was named by Modern Library and its readers as one of the 100 best English-language novels of the 20th century. It has been frequently challenged in the court for its liberal use of profanity and portrayal of sexuality and in the 1950's and 60's it was the novel that every teenage boy wants to read.</p>
+    </div>
+</div>
+<div class="book-description-container">
+    <h2 class="book-description-title">Description: </h2>
+    <p class="book-description">The Catcher in the Rye by J.D. Salinger follows teenage Holden Caulfield as he wanders New York City after being expelled from school, grappling with loneliness, identity, and the “phoniness” of the adult world.</p>
+    <h2 class="book-description-title">Review: </h2>
+    <p class="book-description">A raw and honest look at teenage angst and alienation. Holden’s voice is unique and relatable, making the novel a timeless coming-of-age story.</p>
+    <h2 class="book-description-title">Rating: </h2>
+    <p class='Ratingm'>3.80/5</p>
+    <p class="StatusA">Available</p>
+    <button class="borrow-button"  onclick="borrowed(this)">Borrow</button>
+    <button class="fav_btn" onclick="ChangeImage(this)"><img src="Images/like.png" alt="❤️"></button>
+</div>
+<p class="border"></p>
+
+
+
+</body>
+</html>
