@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin-Book Management</title>
-  <link rel="stylesheet" href="Styles/adminStyle.css">
+  <link rel="stylesheet" href="Styles/AdminStyle.css">
 </head>
 <body>
 <nav class="navbar">
-  <a href="home.html"><img class="image" src="Images/logo.jpg" alt="Website Logo"></a>
+  <a href="Home.html"><img class="image" src="Images/logo.jpg" alt="Website Logo"></a>
+  <div class="tabs">
+    <span><a href="Home.html">Log out</a></span>
+    <span><a href="Home.html#about">About</a></span>
+    <span><a href="ContactUs.html">Contact us</a></span>
+  </div>
 </nav>
+
 
 <div class="container">
   <h1>Book Management System</h1>
   <div class="tab-buttons">
     <a href="#Add"><button class="tab-btn active">Add New Book</button></a>
-    <a href="viewBooks.html"><button class="tab-btn" >View Books</button></a>
+    <a href="ViewBooks.html"><button class="tab-btn" >View Books</button></a>
     <a href="#Edit"><button class="tab-btn" >Edit Book</button></a>
   </div>
 
-  <!-- Add New Book Section -->
   <div class="section" id="Add">
     <h2>Add New Book</h2>
     <form method="post">
@@ -88,7 +93,7 @@
         <textarea id="edit-description" name="description" rows="4" required></textarea>
       </div>
       <button type="submit">Update Book</button>
-      <a href="admin.html" class="btn">Cancel</a>
+      <a href="Admin.html" class="btn">Cancel</a>
     </form>
   </div>
 </div>
