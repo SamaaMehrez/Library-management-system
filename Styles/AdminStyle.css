@@ -12,6 +12,17 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.navbar .tabs span a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.navbar .tabs span a:hover {
+    color: #7fdeee;
+    transition: 0.5s;
+}
 .image{
     width:250px;
     height: 60px;
