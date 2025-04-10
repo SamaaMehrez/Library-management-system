@@ -12,9 +12,52 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.Navopt{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+.Navopt:hover{
+    color: #7fdeee;
+    transition: 0.5s;
+}
 .image {
     width: 250px;
     height: 60px;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    width: 450px;
+    border: 1px solid #ccc;
+    margin-right: 25px;
+}
+
+#search-bar {
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 100%;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+#search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+#search-btn img{
+    width: 20px;
+    margin-top:1px;
 }
 .section {
     margin-bottom: 30px;
@@ -50,6 +93,7 @@ button, .btn {
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
+    margin: 3px;
 }
 button:hover, .btn:hover {
     background-color: #1a252f;
