@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view books</title>
+  <link rel="stylesheet" href="Styles/ViewBooksStyle.css">
+</head>
+<body>
+<nav class="navbar">
+  <a href="Home.html"><img class="image" src="Images/logo.jpg" alt="Website Logo"></a>
+  <div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search for a book...">
+    <button id="search-btn"><img src="Images/search.png" alt="🔍">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+  <a class="Navopt" id="Home" href="Admin.html">Home</a>
+</nav>
+<div class="section" id="View">
+  <h2>Available Books</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Book Name</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>B001</td>
+      <td>Rich Dad Poor Dad</td>
+      <td>Robert Kiyosaki</td>
+      <td>Personal Finance</td>
+      <td>The book advocates for financial literacy</td>
+      <td>
+          <a href="Admin.html#Edit"><button class="edit-btn">
+            Edit</button></a>
+        <button class="delete-btn">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>B002</td>
+      <td>One Hundred Years of Solitude</td>
+      <td>Gabriel García Márquez</td>
+      <td>Fiction</td>
+      <td>Tells the story of the Buendia family</td>
+      <td>
+        <a href="Admin.html#Edit"><button class="edit-btn">
+          Edit</button></a>
+        <button class="delete-btn">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>B003</td>
+      <td>The Great Gatsby</td>
+      <td>F. Scott Fitzgerald</td>
+      <td>Fiction
+        School</td>
+      <td>The novel was inspired by a youthful romance Fitzgerald had with socialite Ginevra King</td>
+      <td>
+        <a href="Admin.html#Edit"><button class="edit-btn">
+          Edit</button></a>
+        <button class="delete-btn">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>B004</td>
+      <td>Anna Karenina</td>
+      <td> Leo Tolstoy</td>
+      <td>Fiction
+        Romance</td>
+      <td>Anna Karenina provides a vast panorama of contemporary life in Russia and of humanity in general.</td>
+      <td>
+        <a href="Admin.html#Edit"><button class="edit-btn">
+          Edit</button></a>
+        <button class="delete-btn">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>B005</td>
+      <td>The Catcher in the Rye</td>
+      <td> J.D. Salinger</td>
+      <td>Classics
+        Fiction</td>
+      <td>The Catcher in the Rye by J.D. Salinger follows teenage Holden Caulfield as he wanders New York City</td>
+      <td>
+        <a href="Admin.html#Edit"><button class="edit-btn">
+          Edit</button></a>
+        <button class="delete-btn">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+</html>
