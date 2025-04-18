@@ -4,19 +4,7 @@
     <meta charset="UTF-8">
     <title>Sign Up</title>
   <link rel="stylesheet" href="Styles/SignupStyle.css">
-  <script>
-    function handleLogin(event) {
-      event.preventDefault();
-
-      const userType = document.querySelector('input[name="userType"]:checked').value;
-
-      if (userType === "Admin") {
-        window.location.href = "admin.html";
-      } else if (userType === "User") {
-        window.location.href = "user.html";
-      }
-    }
-  </script>
+  <script src="Script/SignUP.js" defer></script>
 </head>
 <body>
 <nav class="navbar">
@@ -27,26 +15,26 @@
     </div>
 </nav>
 
-<form action="" method="post" target="_blank" class="login" onsubmit="handleLogin(event)">
+<form action="" method="post" target="_blank" class="login" id="signupForm">
   <p class="title">Create New Account</p>
   <div class="inputs">
     <label class="name">
-      <input type="text" placeholder="Username" required>
+      <input type="text" placeholder="Username" id="username" required>
     </label>
     <br>
     <br>
     <label class="email">
-      <input type="email"  placeholder="Email" required>
+      <input type="email"  placeholder="Email" id="email" required>
     </label>
     <br>
     <br>
     <label class="pass">
-      <input type="password" placeholder="Password"  minlength="8" maxlength="12" required>
+      <input type="password" placeholder="Password" id="password" minlength="8" maxlength="12" required>
     </label>
     <br>
     <br>
     <label class="pass">
-      <input type="password" placeholder="Confirm Password"  minlength="8" maxlength="12" required>
+      <input type="password" placeholder="Confirm Password"  minlength="8" id="confirmPassword" maxlength="12" required>
     </label>
     <br>
     <br>
@@ -61,6 +49,9 @@
 
     <br>
     <input type="submit" value="Sign Up">
+  </div>
+  <div class="error">
+    <span id="errorMessage"></span>
   </div>
   <div class="end">
   <span>Already have an account? </span>

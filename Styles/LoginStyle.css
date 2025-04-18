@@ -91,3 +91,9 @@ input[type="submit"]{
     padding-left: 2px;
     color: #0b505e;
 }
+#errorMessage {
+    color: red;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
