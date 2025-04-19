@@ -104,3 +104,10 @@ button:hover, .btn:hover {
 .delete-btn {
     background-color: #e74c3c;
 }
+
+.book-cover {
+    width: 50px;
+    height: 75px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
