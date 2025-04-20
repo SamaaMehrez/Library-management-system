@@ -14,16 +14,15 @@ document.getElementById('signupForm').addEventListener('submit', function (event
 
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Check if user already exists
-    const exists = users.some(user => user.email === email && user.status === status);
-
-    if (exists) {
-      document.getElementById('errorMessage').innerHTML = 'User already exists!';
-      return;
+    const exists = users.some(user => user.email === email);
+    const exists1 = users.some(user => user.status === status);
+    if (exists && exists1) {
+        document.getElementById('errorMessage').innerHTML = 'User already exists!';
+        return;
     }
     if( password !== confirmPassword) {
-      document.getElementById('errorMessage').innerHTML = 'Passwords do not match!';
-      return;
+        document.getElementById('errorMessage').innerHTML = 'Passwords do not match!';
+        return;
     }
     console.log(users);
     console.log(email);
@@ -35,4 +34,5 @@ document.getElementById('signupForm').addEventListener('submit', function (event
     document.getElementById('errorMessage').innerText = 'Account created successfully!';
 
 
-  });
+
+});
