@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Edit Books</title>
+  <meta charset="UTF-8">
+  <title>Edit Books</title>
   <link rel="stylesheet" href="Styles/AddEditBooks.css">
   <script src="Script/EditBooks.js"></script>
 </head>
@@ -16,43 +16,50 @@
 </nav>
 
 <div class="container">
-    <div class="section" id="Edit">
-      <h2>Edit Book</h2>
-      <form id="edit-book-form">
-        <div class="form-group">
-          <label for="edit-book-id">Book ID:</label>
-          <input type="text" id="edit-book-id" name="book-id">
-        </div>
-        <div class="form-group">
-          <label for="edit-book-name">Book Name:</label>
-          <input type="text" id="edit-book-name" name="book-name" required>
-        </div>
-        <div class="form-group">
-          <label for="edit-author">Author:</label>
-          <input type="text" id="edit-author" name="author" required>
-        </div>
-        <div class="form-group">
-          <label for="edit-category">Category:</label>
-          <select id="edit-category" name="category" required>
-            <option value="Fiction">Fiction</option>
-            <option value="Non-Fiction">Non-Fiction</option>
-            <option value="Science">Science</option>
-            <option value="History">History</option>
-            <option value="Biography">Biography</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="edit-description">Description:</label>
-          <textarea id="edit-description" name="description" rows="4" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="book-cover">Book Cover:</label>
-          <input type="file" id="book-cover" name="book-cover" accept="image/*" >
-        </div>
-        <button type="submit">Update Book</button>
-        <a href="Admin.html" class="btn">Cancel</a>
-      </form>
-    </div>
+  <div class="section" id="Edit">
+    <h2>Edit Book</h2>
+    <form id="edit-book-form">
+      <div class="form-group">
+        <label for="edit-book-id">Book ID:</label>
+        <input type="text" id="edit-book-id" name="book-id">
+      </div>
+      <div class="form-group">
+        <label for="edit-book-name">Book Name:</label>
+        <input type="text" id="edit-book-name" name="book-name" required>
+      </div>
+      <div class="form-group">
+        <label for="edit-author">Author:</label>
+        <input type="text" id="edit-author" name="author" required>
+      </div>
+      <div class="form-group">
+        <label for="edit-category">Category:</label>
+        <select id="edit-category" name="category" required>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Science">Science</option>
+          <option value="History">History</option>
+          <option value="Biography">Biography</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="edit-description">Description:</label>
+        <textarea id="edit-description" name="description" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="edit-Available">Availability:</label>
+        <select id="edit-Available" name="category" required>
+          <option value="Available" selected>Available</option>
+          <option value="Not Available">Not Available</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="book-cover">Book Cover:</label>
+        <input type="file" id="book-cover" name="book-cover" accept="image/*" >
+      </div>
+      <button type="submit">Update Book</button>
+      <a href="Admin.html" class="btn">Cancel</a>
+    </form>
+  </div>
 </div>
 
 </body>
