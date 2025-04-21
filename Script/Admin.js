@@ -1,14 +1,18 @@
 window.addEventListener("DOMContentLoaded", function () {
-    // Event listener for the search bar to filter the table rows
     document.getElementById('search-bar').addEventListener('keyup', function () {
-        let filter = this.value.toLowerCase();
-        let rows = document.querySelectorAll('table tbody tr');
-
+        const filterValue = this.value.toLowerCase();
+        const filter = document.getElementById('filter').value;
+        const rows = document.querySelectorAll('table tbody tr');
+        let cellText;
         rows.forEach(row => {
-            let text = row.textContent.toLowerCase();
-            row.style.display = text.includes(filter) ? '' : 'none';
+            if (filter === 'id') cellText = row.cells[1].textContent.toLowerCase();
+            else if (filter === 'name') cellText = row.cells[2].textContent.toLowerCase();
+            else if (filter === 'author') cellText = row.cells[3].textContent.toLowerCase();
+            else if (filter === 'category') cellText = row.cells[4].textContent.toLowerCase();
+            row.style.display = cellText.includes(filterValue) ? '' : 'none';
         });
     });
+
 
     // Retrieve books from localStorage
     const books = JSON.parse(localStorage.getItem('books')) || [];
@@ -29,6 +33,7 @@ window.addEventListener("DOMContentLoaded", function () {
             <td>${book.author}</td>
             <td>${book.category}</td>
             <td>${book.description}</td>
+            <td>${book.Available}</td>
             <td></td> <!-- Empty cell for buttons -->
         `;
 
