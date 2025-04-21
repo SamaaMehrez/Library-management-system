@@ -11,6 +11,11 @@
     <a href="Home.html"><img class="image" src="Images/logo.jpg" alt="none"></a>
 
     <div class="search-container">
+        <select id="filter">
+            <option value="">Select</option>
+            <option value="name">Book Name</option>
+            <option value="author">Author</option>
+        </select>
         <input type="text" id="search-bar" placeholder="Search for a book...">
         <button id="search-btn"><img src="Images/search.png" alt="🔍">
             <i class="fas fa-search"></i>
@@ -50,48 +55,14 @@
     </div>
     <button id="nextBtn" class="nav-btn">&#9655;</button>
 </div>
-<p class="Header1">Available Books</p>
-<div class="main">
-    <div class="Books">
-        <a href="BooksDetails.html#OneHundredYearsofSolitude"><Img src="Images/One Hundred Years of Solitude.jpg"></a>
-        <a href="BooksDetails.html#OneHundredYearsofSolitude"> <label class="Books-label">One Hundred Years of Solitude</label></a>
-    </div>
-    <div class="Books">
-        <a href="BooksDetails.html#AnnaKarenina"><Img src="Images/Anna Karenina.jpg"></a>
-        <a href="BooksDetails.html#AnnaKarenina"><label class="Books-label">Anna Karenina</label></a>
-    </div>
-    <div class="Books">
-        <a href="BooksDetails.html#TheCatcherintheRye"><Img src="Images/The Catcher in the Rye.webp"></a>
-        <a href="BooksDetails.html#TheCatcherintheRye"><label class="Books-label">The Catcher in the Rye</label></a>
-    </div>
-    <b>
-        <p class="Header1">All Books</p>
-        <div class="main">
-            <div class="Books">
-                <a href="BooksDetails.html#OneHundredYearsofSolitude"><Img src="Images/One Hundred Years of Solitude.jpg"></a>
-                <a href="BooksDetails.html#OneHundredYearsofSolitude"><label class="Books-label">One Hundred Years of Solitude</label></a>
-            </div>
-            <div class="Books">
-                <a href="BooksDetails.html#AnnaKarenina"><Img src="Images/Anna Karenina.jpg"></a>
-                <a href="BooksDetails.html#AnnaKarenina"><label class="Books-label">Anna Karenina</label></a>
-            </div>
-            <div class="Books">
-                <a href="BooksDetails.html#TheCatcherintheRye"><Img src="Images/The Catcher in the Rye.webp"></a>
-                <a href="BooksDetails.html#TheCatcherintheRye"><label class="Books-label">The Catcher in the Rye</label></a>
-            </div>
-            <div class="Books">
-                <a href="BooksDetails.html#TheGreatGatsby"><Img src="Images/The Great Gatsby.jpg"></a>
-                <a href="BooksDetails.html#TheGreatGatsby"><label class="Books-label">The Great Gatsby</label></a>
-            </div>
-            <div class="Books">
-                <a href="BooksDetails.html#RichDadAndPoorDad" cursor="pointer"><Img src="Images/Rich dad and poor dad.jpg" ></a>
-                <a href="BooksDetails.html#RichDadAndPoorDad" cursor="pointer"><label class="Books-label">Rich Dad Poor Dad</label></a>
-            </div>
+
+        <p class="Header1" id="All-Books">All Books</p>
+        <div class="main" >
 
         </div>
 
 
-</b>
+    </b>
 </div>
 </body>
 
