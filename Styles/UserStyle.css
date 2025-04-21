@@ -15,6 +15,10 @@ body{
     padding: 15px;
     color: white;
     font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
 }
 
 .image{
@@ -96,27 +100,7 @@ body{
 
 }
 
-.book-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
 
-.book-item img {
-    width: 100px;
-    border-radius: 5px;
-}
-.book-item img:hover{
-    transform: scale(1.1);
-    transform-origin: right;
-}
-
-.book-label {
-    margin-top: 5px;
-    font-size: 14px;
-    color: white;
-}
 div a{
     text-decoration: none;
 }
@@ -129,25 +113,6 @@ div a{
     color: white;
 }
 
-
-.Books{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex-basis: calc(100% / 7 - 20px);
-    max-width: calc(100% / 7 - 20px);
-    box-sizing: border-box;
-}
-.Books img{
-    width: 200px;
-    height: 260px;
-    border-radius: 5px;
-    margin:50px;
-}
-.Books img:hover{
-    transform: scale(1.1);
-}
 .Books-label {
     margin-top: 5px;
     font-size: 20px;
@@ -159,4 +124,15 @@ div a{
     overflow: hidden;
     flex-wrap: wrap;
     justify-content: center;
+}
+#filter{
+    padding: 5px;
+    background-color: #eeeeee;
+    color: black;
+    border-radius: 10px;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
