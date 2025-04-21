@@ -63,6 +63,20 @@ function displayTrendingBooks() {
         bookItem.appendChild(imgLink);
         bookItem.appendChild(labelLink);
         slider.appendChild(bookItem);
+        [bookItem, labelLink].forEach(link => {
+            link.addEventListener('click', function () {
+                let VBook = {
+                    id: book.id,
+                    name: book.name,
+                    image: book.image,
+                    description: book.description,
+                    available: book.Available,
+                    author: book.author,
+                    category: book.category // typo fixed here too
+                };
+                window.localStorage.setItem('viewedBook', JSON.stringify(VBook));
+            });
+        });
     });
 }
 
