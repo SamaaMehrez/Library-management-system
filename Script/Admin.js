@@ -26,6 +26,7 @@ window.addEventListener("DOMContentLoaded", function () {
     books.forEach(book => {
         const row = document.createElement('tr');
 
+
         row.innerHTML = `
             <td><img src="${book.image}" alt="Cover" width="60" height="80"></td>
             <td>${book.id}</td>
@@ -33,9 +34,15 @@ window.addEventListener("DOMContentLoaded", function () {
             <td>${book.author}</td>
             <td>${book.category}</td>
             <td>${book.description}</td>
-            <td>${book.Available}</td>
+            <td class = "Available"> ${book.Available}</td>
             <td></td> <!-- Empty cell for buttons -->
         `;
+        const availabilityCell = row.querySelector('.Available');
+        if (book.Available === "Available") {
+            availabilityCell.style.color = 'green';
+        } else if (book.Available === "Not Available") {
+            availabilityCell.style.color = 'red';
+        }
 
         // Add Edit button
         const editBtn = document.createElement("button");

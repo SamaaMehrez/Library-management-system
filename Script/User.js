@@ -36,15 +36,49 @@ function displayBooks() {
         const bookElement = document.createElement('div');
         bookElement.classList.add('Books');
 
-        bookElement.innerHTML = `
-            <a href="BooksDetails.html#${book.id}">
-                <img src="${book.image}" alt="${book.name}">
-            </a>
-            <a href="BooksDetails.html#${book.id}">
-                <label class="Books-label">${book.name}</label>
-            </a>
-            <span class="author-name" style="display: none">${book.author}</span>
-        `;
+        const bookLink = document.createElement('a');
+        bookLink.href = `BooksDetails.html#${book.id}`;
+        bookLink.classList.add('book-link');
+
+        const bookImage = document.createElement('img');
+        bookImage.src = book.image;
+        bookImage.alt = book.name;
+
+        const bookLabelLink = document.createElement('a');
+        bookLabelLink.href = `BooksDetails.html#${book.id}`;
+        bookLabelLink.classList.add('book-link');
+
+        const bookLabel = document.createElement('label');
+        bookLabel.classList.add('Books-label');
+        bookLabel.textContent = book.name;
+
+        const authorSpan = document.createElement('span');
+        authorSpan.classList.add('author-name');
+        authorSpan.style.display = 'none';
+        authorSpan.textContent = book.author;
+
+        bookLink.appendChild(bookImage);
+        bookLabelLink.appendChild(bookLabel);
+
+        // add event listener to both links
+        [bookLink, bookLabelLink].forEach(link => {
+            link.addEventListener('click', function () {
+                let VBook = {
+                    id: book.id,
+                    name: book.name,
+                    image: book.image,
+                    description: book.description,
+                    Available: book.Available,
+                    author: book.author,
+                    category: book.category // typo fixed here too
+                };
+                window.localStorage.setItem('viewedBook', JSON.stringify(VBook));
+            });
+        });
+
+        bookElement.appendChild(bookLink);
+        bookElement.appendChild(bookLabelLink);
+        bookElement.appendChild(authorSpan);
 
         allBooksContainer.appendChild(bookElement);
     });

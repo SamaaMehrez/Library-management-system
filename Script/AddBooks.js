@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const category = document.getElementById('category').value;
         const description = document.getElementById('description').value.trim();
         const imageInput = document.getElementById('book-cover');
-
+        const AvailableBooks = document.getElementById('Available').value;
         if (!bookId || !bookName || !author || !category || !description) {
             alert('Please fill all fields');
             return;
@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please choose image for the book');
             return;
         }
+        bookss= JSON.parse(localStorage.getItem('books')) || [];
+        if(bookss.some(book => book.id === bookId)){
+            alert('Book ID already exists! Please choose a different ID.');
+            return;
+        }
+
 
         const reader = new FileReader();
         reader.onload = function () {
@@ -30,7 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 author: author,
                 category: category,
                 description: description,
-                image: image
+                image: image,
+                Available: AvailableBooks
             };
 
             let books = JSON.parse(localStorage.getItem('books')) || [];
