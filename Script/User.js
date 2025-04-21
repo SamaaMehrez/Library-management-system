@@ -168,6 +168,20 @@ function displayBooks() {
         bookElement.appendChild(labelLink);
         bookElement.appendChild(authorSpan);
         allBooksContainer.appendChild(bookElement);
+        [bookElement, labelLink].forEach(link => {
+            link.addEventListener('click', function () {
+                let VBook = {
+                    id: book.id,
+                    name: book.name,
+                    image: book.image,
+                    description: book.description,
+                    available: book.Available,
+                    author: book.author,
+                    category: book.category // typo fixed here too
+                };
+                window.localStorage.setItem('viewedBook', JSON.stringify(VBook));
+            });
+        });
     });
 }
 // إعداد البحث مع الانتقال التلقائي
