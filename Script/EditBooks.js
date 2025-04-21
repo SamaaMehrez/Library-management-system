@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const category = document.getElementById("edit-category").value;
             const description = document.getElementById("edit-description").value.trim();
             const imageInput = document.getElementById("book-cover");
-
+            const AvailableBooks = document.getElementById('edit-Available').value;
             // Check if all required fields are filled
             if (!bookName || !author || !category || !description) {
                 alert('Please fill all fields');
@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         author: author,
                         category: category,
                         description: description,
-                        image: updatedImage
+                        image: updatedImage,
+                        Available: AvailableBooks
                     };
 
                     // Get the list of books from localStorage
@@ -65,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     author: author,
                     category: category,
                     description: description,
-                    image: Oimage
+                    image: Oimage,
+                    Available: AvailableBooks
                 }
                 let books = JSON.parse(localStorage.getItem('books')) || [];
 
