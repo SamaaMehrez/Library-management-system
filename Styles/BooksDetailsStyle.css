@@ -1,11 +1,11 @@
-body{
+body {
     font-family: "Trirong", serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #7fdeee 10%, #015060 50% , #032e46 65%);
+    background: linear-gradient(to right, #7fdeee 10%, #015060 50%, #032e46 65%);
     background-size: cover;
-
 }
+
 .navbar {
     font-family: "Trirong", serif;
     display: flex;
@@ -17,12 +17,12 @@ body{
     font-weight: bold;
 }
 
-.image{
-    width:250px;
+.image {
+    width: 250px;
     height: 60px;
 }
 
-.Navopt{
+.Navopt {
     background-color: transparent;
     color: white;
     border: none;
@@ -31,7 +31,6 @@ body{
     cursor: pointer;
     text-decoration: none;
 }
-
 
 .search-container {
     display: flex;
@@ -58,15 +57,18 @@ body{
     cursor: pointer;
     padding: 5px;
 }
-#search-btn img{
+
+#search-btn img {
     width: 20px;
-  margin-top:1px;
+    margin-top: 1px;
 }
-.Navopt:hover{
+
+.Navopt:hover {
     color: #7fdeee;
     transition: 0.5s;
 }
-#Home{
+
+#Home {
     background-color: transparent;
     color: white;
     border: none;
@@ -77,188 +79,67 @@ body{
     position: absolute;
     right: 150px;
 }
-#Home:hover{
+
+#Home:hover {
     color: #7fdeee;
     transition: 0.5s;
 }
-.book-image{
-    width: 400px;
-    height: 500px;
-    margin: 20px;
-    border-radius: 20px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-.book-title{
-    font-family: "Trirong", serif;
-    font-size: 35px;
-    color: white;
-    text-align: center;
-    margin-top:-500px;
-    margin-left: -450px;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-.General-information{
-    font-family: "Trirong", serif;
-    font-size: 28px;
-    color: white;
-    text-align: left;
-    margin-left: 450px;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-pre{
-    font-family: "Trirong", serif;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-.book-description-title{
-    font-family: "Trirong", serif;
-    font-size: 25px;
-    color: white;
-    text-align: left;
-    margin-top: 80px;
-    margin-left: 35px;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-.book-description{
-    font-family: "Trirong", serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    text-align: left;
-    margin-top: 20px;
-    margin-left: 35px;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-.Ratingh{
-    font-family: "Trirong", serif;
-    font-size: 30px;
-    text-align: left;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-left: 35px;
-    color: green;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-a{
-    text-decoration: none;
-}
-.book-description-container {
-    background: linear-gradient(to right, rgba(16, 42, 46, 0.8) 10%, rgba(31, 57, 62, 0.8) 50%, rgba(71, 97, 112, 0.8) 65%);
-    background-size: cover;
-    padding: 5px 5px 20px 5px;
-    margin-top: 80px;
-    border-radius: 60px;
-    border: 30px solid #022334;
+
+.books-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
 }
 
-.Author-desc{
-    font-family: "Trirong", serif;
-    font-size: 25px;
+.book-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: transparent;
     color: white;
-    text-align: right;
-    margin-top: -440px;
-    margin-right: 530px;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
-}
-.Author-desc-i{
-    font-family: "Trirong", serif;
-    font-size: 20px;
-    width: auto;
-    height: auto;
-    margin-left: 590px;
-    color: white;
-    text-align: left;
-    font-weight: bold;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-.Author-image{
+.book-image {
     width: 200px;
-    height: 250px;
-    border-radius: 20px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    margin-top: -400px;
-    margin-bottom: 140px;
-    margin-left: 370px;
-}
-
-.border{
-    border: 1px solid #000000;
-    border-radius: 20px;
-    padding: 10px;
-    margin-top: 20px;
-    margin-left: 35px;
-    background-color: rgb(0, 0, 0);
-    color: black;
-    font-family: "Trirong", serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.StatusN{
-    font-family: "Trirong", serif;
-    font-size: 20px;
-    width: auto;
-    height: auto ;
-    margin-left: 30px;
-    color: rgb(235, 4, 4);
-    text-align: left;
-    font-weight: bold;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-.StatusA{
-    font-family: "Trirong", serif;
-    font-size: 20px;
-    width: auto;
-    height: auto ;
-    margin-left: 30px;
-    color: rgb(4, 249, 77);
-    text-align: left;
-    font-weight: bold;
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
-}
-.borrow-button{
-    background-color: #67b3c0;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-weight: bold;
+    height: 300px;
     border-radius: 10px;
-    cursor: pointer;
+    object-fit: cover;
+}
+
+.book-details {
+    flex: 1;
     text-align: center;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-top: -5px;
-    box-shadow: #000000 0px 0px 10px;
+    color: #ffffff;
 }
-.Ratingm{
-    font-family: "Trirong", serif;
-    font-size: 30px;
-    text-align: left;
+
+.book-details h3 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 29px;
     font-weight: bold;
-    margin-top: 20px;
-    margin-left: 35px;
-    color: rgb(255, 183, 0);
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
 }
-.Ratingl{
-    font-family: "Trirong", serif;
-    font-size: 30px;
-    text-align: left;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-left: 35px;
-    color: rgb(255, 0, 0);
-    text-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+
+.book-details p {
+    margin: 5px 0;
+    color: #ffffff;
 }
-.fav_btn{
-    background: none;
-    border: none;
+
+.book-details button {
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 16px;
     cursor: pointer;
-    padding: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: #015060;
+    color: white;
 }
-.fav_btn img{
-    width: 23px;
-    margin-left: 7px;
-    margin-bottom: -5px;
+
+.book-details button:hover {
+    background-color: #0288a7;
 }
