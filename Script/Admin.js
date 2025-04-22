@@ -3,12 +3,14 @@ window.addEventListener("DOMContentLoaded", function () {
         const filterValue = this.value.toLowerCase();
         const filter = document.getElementById('filter').value;
         const rows = document.querySelectorAll('table tbody tr');
-        let cellText;
+
         rows.forEach(row => {
+            let cellText = row.textContent.toLowerCase();
             if (filter === 'id') cellText = row.cells[1].textContent.toLowerCase();
             else if (filter === 'name') cellText = row.cells[2].textContent.toLowerCase();
             else if (filter === 'author') cellText = row.cells[3].textContent.toLowerCase();
             else if (filter === 'category') cellText = row.cells[4].textContent.toLowerCase();
+            else if (filter === 'trending') cellText = row.cells[7].textContent.toLowerCase();
             row.style.display = cellText.includes(filterValue) ? '' : 'none';
         });
     });
@@ -19,13 +21,10 @@ window.addEventListener("DOMContentLoaded", function () {
 
     const tableBody = document.querySelector('table tbody');
 
-    // Clear existing rows before adding the updated books
-    tableBody.innerHTML = '';
 
     // Populate the table with the books data from localStorage
     books.forEach(book => {
         const row = document.createElement('tr');
-
 
         row.innerHTML = `
             <td><img src="${book.image}" alt="Cover" width="60" height="80"></td>
@@ -35,6 +34,7 @@ window.addEventListener("DOMContentLoaded", function () {
             <td>${book.category}</td>
             <td>${book.description}</td>
             <td class = "Available"> ${book.Available}</td>
+            <td class = "Trending">${book.trending}</td>
             <td></td> <!-- Empty cell for buttons -->
         `;
         const availabilityCell = row.querySelector('.Available');
@@ -43,7 +43,12 @@ window.addEventListener("DOMContentLoaded", function () {
         } else if (book.Available === "Not Available") {
             availabilityCell.style.color = 'red';
         }
-
+        const trendingCell = row.querySelector('.Trending');
+        if (book.trending === "Yes") {
+            trendingCell.style.color = 'green';
+        } else if (book.trending === "No") {
+            trendingCell.style.color = 'red';
+        }
         // Add Edit button
         const editBtn = document.createElement("button");
         editBtn.textContent = "Edit";
