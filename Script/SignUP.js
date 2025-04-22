@@ -30,6 +30,9 @@ document.getElementById('signupForm').addEventListener('submit', function (event
     console.log(username);
     users.push({ username: username , email: email, password: password, status: status });
     localStorage.setItem('users', JSON.stringify(users));
+    window.localStorage.setItem('loggedInUser', matchedUser.username);
+    window.localStorage.setItem('status', matchedUser.status);
+    window.localStorage.setItem('password', matchedUser.password);
 
     document.getElementById('errorMessage').innerText = 'Account created successfully!';
 
