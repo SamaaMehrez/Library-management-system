@@ -1,89 +1,72 @@
 document.addEventListener('DOMContentLoaded', function () {
     const bookData = JSON.parse(localStorage.getItem("editBookData"));
+    document.getElementById('edit-book-id').value = bookData.id;
+    document.getElementById('edit-book-name').value = bookData.name;
+    document.getElementById('edit-author').value = bookData.author;
+    document.getElementById('edit-book-id').disabled = true;
+    document.getElementById('edit-description').value = bookData.description;
+    document.getElementById('edit-Available').value = bookData.Available;
+    document.getElementById('edit-category').value = bookData.category;
+    document.getElementById('edit-trending').value=bookData.trending ;
 
-    document.getElementById('edit-book-id').value=bookData.id;
-    document.getElementById('edit-book-name').value=bookData.name;
-    document.getElementById('edit-author').value=bookData.author;
-    document.getElementById('edit-book-id').disabled=true;
-    document.getElementById('edit-description').value=bookData.description;
-    const fileInput = document.getElementById('book-cover');
+
+    if (bookData.trending !== undefined) {
+        document.getElementById('edit-trending').value = bookData.trending ? 'Yes' : 'No';
+    }
 
 
+    if (bookData.image) {
+        const previewDiv = document.createElement('div');
+            document.getElementById('edit-book-cover').parentNode.appendChild(previewDiv);
+            }
 
-        document.getElementById("edit-book-form").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission behavior
+            document.getElementById("edit-book-form").addEventListener("submit", function (event) {
+                event.preventDefault();
 
-            const bookId = document.getElementById("edit-book-id").value;
-            const bookName = document.getElementById("edit-book-name").value.trim();
-            const author = document.getElementById("edit-author").value.trim();
-            const category = document.getElementById("edit-category").value;
-            const description = document.getElementById("edit-description").value.trim();
-            const imageInput = document.getElementById("book-cover");
-            const AvailableBooks = document.getElementById('edit-Available').value;
-            // Check if all required fields are filled
-            if (!bookName || !author || !category || !description) {
-                alert('Please fill all fields');
+                const bookId = document.getElementById("edit-book-id").value;
+                const bookName = document.getElementById("edit-book-name").value.trim();
+                const author = document.getElementById("edit-author").value.trim();
+                const category = document.getElementById("edit-category").value;
+                const description = document.getElementById("edit-description").value.trim();
+                const Availability = document.getElementById('edit-Available').value;
+                const trending = document.getElementById('edit-trending').value;
+                const imageInput = document.getElementById("edit-book-cover");
+
+
+                if (!bookName || !author || !category || !description || !trending) {
+                alert('Please fill all required fields');
                 return;
             }
 
-            if (imageInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function () {
-                    updatedImage = reader.result; // Set the new image if it's selected
-
-                    const updatedBook = {
-                        id: bookId,
-                        name: bookName,
-                        author: author,
-                        category: category,
-                        description: description,
-                        image: updatedImage,
-                        Available: AvailableBooks
-                    };
-
-                    // Get the list of books from localStorage
-                    let books = JSON.parse(localStorage.getItem('books')) || [];
-
-                    // Update the book in the list
-                    books = books.map(book => book.id === updatedBook.id ? updatedBook : book);
-
-                    // Save the updated list back to localStorage
-                    localStorage.setItem('books', JSON.stringify(books));
-
-                    // Show success alert and redirect
-                    alert("Book updated successfully.");
-                    window.location.href = "Admin.html"; // Redirect to the admin page
-                };
-
-                reader.readAsDataURL(imageInput.files[0]); // Read the new image file
-            }
-            else{
-                console.log(1);
-                const Oimage = bookData.image;
+                const updateBookData = () => {
                 const updatedBook = {
-                    id: bookId,
-                    name: bookName,
-                    author: author,
-                    category: category,
-                    description: description,
-                    image: Oimage,
-                    Available: AvailableBooks
-                }
+                id: bookId,
+                name: bookName,
+                author: author,
+                category: category,
+                description: description,
+                Available: Availability,
+                trending: trending,
+                image: bookData.image
+            };
+
                 let books = JSON.parse(localStorage.getItem('books')) || [];
-
-                // Update the book in the list
                 books = books.map(book => book.id === updatedBook.id ? updatedBook : book);
-
-                // Save the updated list back to localStorage
                 localStorage.setItem('books', JSON.stringify(books));
 
-                // Show success alert and redirect
                 alert("Book updated successfully.");
-                window.location.href = "Admin.html"; 
+                window.location.href = "Admin.html";
+            };
 
+                if (imageInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function () {
+                bookData.image = reader.result;
+                updateBookData();
+            };
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                updateBookData();
             }
-        
-
-        });
-
-});
+            });
+            });
