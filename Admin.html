@@ -12,11 +12,12 @@
   <a href="Home.html"><img class="image" src="Images/logo.jpg" alt="Website Logo"></a>
   <div class="search-container">
     <select id="filter">
-      <option value="">Select</option>
+      <option value="All">Select All</option>
       <option value="id">ID</option>
       <option value="name">Book Name</option>
       <option value="author">Author</option>
       <option value="category">Category</option>
+      <option value="trending">Trending</option>
     </select>
     <input type="text" id="search-bar" placeholder="Search for a book...">
     <button id="search-btn">
@@ -25,11 +26,11 @@
   </div>
   <div class="nav-links">
     <a href="AddBooks.html" class="Navopt" id="add">➕ Add New Book</a>
-  <a href="Home.html" class="Navopt">Log out</a>
+    <a href="Home.html" class="Navopt">Log out</a>
   </div>
 </nav>
 <div class="section" id="View">
-    <h2>All Books</h2>
+  <h2>All Books</h2>
   <table>
     <thead>
     <tr>
@@ -40,16 +41,14 @@
       <th>Category</th>
       <th>Description</th>
       <th>Availability</th>
+      <th>Trending</th>
       <th>Actions</th>
-
     </tr>
     </thead>
     <tbody>
     </tbody>
   </table>
-
 </div>
 
 </body>
 </html>
-

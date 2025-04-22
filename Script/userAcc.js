@@ -18,11 +18,20 @@ function displayBooks(bookIds, allBooks, containerId) {
         if (book) {
             const bookDiv = document.createElement('div');
             bookDiv.classList.add('book');
+    
             bookDiv.innerHTML = `
-                <a href="BooksDetails.html#${book.id}">
+                <a href="BooksDetails.html">
                     <img src="${book.image}" alt="${book.name}">
                 </a>
+
             `;
+    
+            // Add event listener to the link to store book data
+            const link = bookDiv.querySelector('a');
+            link.addEventListener('click', () => {
+                localStorage.setItem('viewedBook', JSON.stringify(book));
+            });
+    
             container.appendChild(bookDiv);
         }
     });

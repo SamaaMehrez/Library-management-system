@@ -11,7 +11,7 @@
 <nav class="navbar">
   <a href="Home.html"><img class="image" src="Images/logo.jpg" alt="Website Logo"></a>
   <div class="Navopt">
-        <a class="Navopt" id="Home" href="Admin.html">Home</a>
+    <a class="Navopt" id="Home" href="Admin.html">Home</a>
   </div>
 </nav>
 
@@ -48,9 +48,16 @@
       </div>
       <div class="form-group">
         <label for="Available">Availability:</label>
-        <select id="Available" name="category" required>
+        <select id="Available" name="Available" required>
           <option value="Available" selected>Available</option>
           <option value="Not Available">Not Available</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="trending">Add to Trending Books:</label>
+        <select id="trending" name="trending" required>
+          <option value="No" selected>No</option>
+          <option value="Yes">Yes</option>
         </select>
       </div>
       <div class="form-group">

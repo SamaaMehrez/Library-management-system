@@ -34,7 +34,7 @@ document.getElementById('signupForm').addEventListener('submit', function (event
     document.getElementById('errorMessage').innerText = 'Account created successfully!';
 
 
-
+//click sign up to go to the user or admin page
 if (document.getElementById('user').checked) {
     status = "User";
 } else if (document.getElementById('admin').checked) {

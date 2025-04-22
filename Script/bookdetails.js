@@ -66,14 +66,14 @@ function ChangeImage(button, bookId) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const booksContainer = document.getElementById('books-container');
-    const books = JSON.parse(localStorage.getItem('books')) || [];
+    const books = localStorage.getItem('viewedBook') || [];
 
     if (books.length === 0) {
         booksContainer.innerHTML = "<p>No books available.</p>";
         return;
     }
 
-    books.forEach(book => {
+        const book = JSON.parse(books);
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <p><strong>Author:</strong> ${book.author}</p>
             <p><strong>Category:</strong> ${book.category}</p>
             <p><strong>Description:</strong> ${book.description}</p>
-            <p><strong>Available:</strong> ${book.Available}</p>
+            <p class="Available"><strong>Available:</strong> ${book.Available}</p>
         `;
 
         const borrowBtn = document.createElement('button');
@@ -118,6 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
         bookCard.appendChild(bookInfo);
 
         booksContainer.appendChild(bookCard);
-    });
+;
 });
 
