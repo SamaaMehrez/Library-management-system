@@ -8,11 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function displayTrendingBooks() {
     const slider = document.querySelector('.slider');
     const books = JSON.parse(localStorage.getItem('books')) || [];
+    const trendingBooks = books.filter(book => book.trending === "Yes");
 
-    // مسح المحتوى القديم للسلايدر (إضافة مهمة لمنع التكرار)
-    slider.innerHTML = '';
 
-    books.forEach(book => {
+    trendingBooks.forEach(book => {
         const bookItem = document.createElement('div');
         bookItem.className = 'book-item';
 
@@ -115,7 +114,6 @@ function setupSlider() {
 function displayBooks() {
     const books = JSON.parse(localStorage.getItem('books')) || [];
     const allBooksContainer = document.querySelector('.main');
-    allBooksContainer.innerHTML = '';
 
     books.forEach(book => {
         const bookElement = document.createElement('div');
@@ -230,8 +228,8 @@ function filterBooks(searchTerm, searchType) {
 
         if (
             (searchType === 'name' && title.includes(searchTerm)) ||
-            (searchType === 'author' && author.includes(searchTerm))
-        ) {
+            (searchType === 'author' && author.includes(searchTerm)) ||
+            searchType === 'All' && (title.includes(searchTerm) || author.includes(searchTerm))) {
             book.style.display = 'flex'; // Show the book
         } else {
             book.style.display = 'none'; // Hide the book
