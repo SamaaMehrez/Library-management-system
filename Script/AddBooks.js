@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // we want to refresh the page
-    window.location.reload();
+
     if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("password") || !localStorage.getItem("status") ){
         window.location.href = "Error404.html";
     }
