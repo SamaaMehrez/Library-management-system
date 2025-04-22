@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
+    window.location.reload();
+    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("password") || !localStorage.getItem("status") ){
         window.location.href = "Error404.html";
     }
     const username = localStorage.getItem("loggedInUser");

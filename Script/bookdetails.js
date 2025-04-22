@@ -1,6 +1,6 @@
 
 function borrowed(button, bookId) {
-    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
+    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("password") || !localStorage.getItem("status") ){
         const msg = document.createElement('p');
         msg.classList.add('borrow-message');
         msg.textContent = "⛔ You are not a user.";
@@ -54,7 +54,7 @@ function borrowed(button, bookId) {
 
 
 function ChangeImage(button, bookId) {
-    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
+    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("password") || !localStorage.getItem("status") ){
         const msg = document.createElement('p');
         msg.classList.add('borrow-message');
         msg.textContent = "⛔ You are not a user.";
@@ -80,6 +80,7 @@ function ChangeImage(button, bookId) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    window.location.reload();
     if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
         const sign=document.getElementById('Acs');
         sign.innerHTML = 'Sign In';
