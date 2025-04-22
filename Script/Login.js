@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         if (matchedUser) {
-            localStorage.setItem('loggedInUser', matchedUser.username);
+            window.localStorage.setItem('loggedInUser', matchedUser.username);
+            window.localStorage.setItem('status', matchedUser.status);
+            window.localStorage.setItem('password', matchedUser.password);
 
             if (status === 'User') {
                 window.location.href = 'User.html';

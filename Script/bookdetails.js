@@ -1,5 +1,13 @@
 
 function borrowed(button, bookId) {
+    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
+        const msg = document.createElement('p');
+        msg.classList.add('borrow-message');
+        msg.textContent = "⛔ You are not a user.";
+        button.parentElement.appendChild(msg);
+        return;
+    }
+    
     const username = localStorage.getItem("loggedInUser");
     const key = username + "_borrowed";
 
@@ -46,6 +54,13 @@ function borrowed(button, bookId) {
 
 
 function ChangeImage(button, bookId) {
+    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
+        const msg = document.createElement('p');
+        msg.classList.add('borrow-message');
+        msg.textContent = "⛔ You are not a user.";
+        button.parentElement.appendChild(msg);
+        return;
+    }
     let img = button.querySelector('img');
     const username = localStorage.getItem("loggedInUser");
     const key = username + "_fav";
@@ -65,6 +80,11 @@ function ChangeImage(button, bookId) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
+        const sign=document.getElementById('Acs');
+        sign.innerHTML = 'Sign In';
+        sign.href = 'Login.html';
+     }
     const booksContainer = document.getElementById('books-container');
     const books = localStorage.getItem('viewedBook') || [];
 
@@ -120,4 +140,3 @@ document.addEventListener('DOMContentLoaded', function () {
         booksContainer.appendChild(bookCard);
 ;
 });
-

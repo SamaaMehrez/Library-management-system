@@ -1,4 +1,10 @@
 window.addEventListener("DOMContentLoaded", function () {
+    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
+        window.location.href = "Error404.html";
+    }
+    else if (localStorage.getItem("status") !== "Admin") {
+        window.location.href = "Error404NotAdmin.html";
+    }
     document.getElementById('search-bar').addEventListener('keyup', function () {
         const filterValue = this.value.toLowerCase();
         const filter = document.getElementById('filter').value;
@@ -13,9 +19,16 @@ window.addEventListener("DOMContentLoaded", function () {
             else if (filter === 'trending') cellText = row.cells[7].textContent.toLowerCase();
             row.style.display = cellText.includes(filterValue) ? '' : 'none';
         });
+        
+        
     });
 
-
+    const logout= document.getElementById('LogOut');
+        logout.addEventListener('click', function() {
+            localStorage.removeItem("loggedInUser");
+            localStorage.removeItem("password");
+            localStorage.removeItem("status");
+     });
     // Retrieve books from localStorage
     const books = JSON.parse(localStorage.getItem('books')) || [];
 

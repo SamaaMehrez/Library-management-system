@@ -1,5 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', function () {
+    if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
+        window.location.href = "Error404.html";
+    }
     const username = localStorage.getItem("loggedInUser");
     const favBooks = JSON.parse(localStorage.getItem(`${username}_fav`)) || [];
     const borrowedBooks = JSON.parse(localStorage.getItem(`${username}_borrowed`)) || [];
@@ -7,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     displayBooks(favBooks, allBooks, 'shelfFav');
     displayBooks(borrowedBooks, allBooks, 'shelfBorrowed');
+    const logout= document.getElementById('LogOut');
+    logout.addEventListener('click', function() {
+        localStorage.removeItem("loggedInUser");
+        localStorage.removeItem("password");
+        localStorage.removeItem("status");
+    });
 });
 
 function displayBooks(bookIds, allBooks, containerId) {
