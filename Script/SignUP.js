@@ -35,4 +35,20 @@ document.getElementById('signupForm').addEventListener('submit', function (event
 
 
 
+if (document.getElementById('user').checked) {
+    status = "User";
+} else if (document.getElementById('admin').checked) {
+    status = "Admin";
+}
+
+if (!status) {
+    document.getElementById('errorMessage').innerText = 'Please select a user type!';
+    return;
+}
+
+if (status === "Admin") {
+    window.location.href = "Admin.html";ل
+} else {
+    window.location.href = "UserAccount.html";ي
+}
 });
