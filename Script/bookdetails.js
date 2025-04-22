@@ -80,7 +80,7 @@ function ChangeImage(button, bookId) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    window.location.reload();
+
     if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
         const sign=document.getElementById('Acs');
         sign.innerHTML = 'Sign In';
