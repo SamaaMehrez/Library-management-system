@@ -50,8 +50,8 @@ if (!status) {
 }
 
 if (status === "Admin") {
-    window.location.href = "Admin.html";ل
+    window.location.href = "Admin.html";
 } else {
-    window.location.href = "UserAccount.html";ي
+    window.location.href = "User.html";
 }
 });
