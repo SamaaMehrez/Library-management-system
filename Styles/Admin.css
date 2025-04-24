@@ -43,7 +43,7 @@ body {
     padding: 5px;
     width: 450px;
     border: 1px solid #ccc;
-    margin-right: 25px;
+    margin-right: -10px;
 }
 
 #search-bar {
