@@ -1,12 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
-
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-
         let status = "";
         if (document.getElementById('user').checked) {
             status = "User";
@@ -15,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const users = JSON.parse(localStorage.getItem('users')) || [];
-
         const matchedUser = users.find(user =>
             user.email === email &&
             user.password === password &&

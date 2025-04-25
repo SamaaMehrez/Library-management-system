@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", function () {
-
     if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("password") || !localStorage.getItem("status") ){
         window.location.href = "Error404.html";
     }
@@ -30,13 +29,9 @@ window.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem("password");
             localStorage.removeItem("status");
      });
-    // Retrieve books from localStorage
     const books = JSON.parse(localStorage.getItem('books')) || [];
-
     const tableBody = document.querySelector('table tbody');
 
-
-    // Populate the table with the books data from localStorage
     books.forEach(book => {
         const row = document.createElement('tr');
 
@@ -49,7 +44,7 @@ window.addEventListener("DOMContentLoaded", function () {
             <td>${book.description}</td>
             <td class = "Available"> ${book.Available}</td>
             <td class = "Trending">${book.trending}</td>
-            <td></td> <!-- Empty cell for buttons -->
+            <td></td>
         `;
         const availabilityCell = row.querySelector('.Available');
         if (book.Available === "Available") {
@@ -68,33 +63,24 @@ window.addEventListener("DOMContentLoaded", function () {
         editBtn.textContent = "Edit";
         editBtn.className = "edit-btn";
         editBtn.addEventListener("click", function () {
-            // Store the selected book data in localStorage for editing
             localStorage.setItem('editBookData', JSON.stringify(book));
-            // Redirect to the EditBooks page
             window.location.href = 'EditBooks.html';
         });
 
-        // Add Delete button
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
         deleteBtn.className = "delete-btn";
         deleteBtn.addEventListener("click", function () {
             if (confirm('Are you sure you want to delete this book?')) {
-                // Remove the selected book from the array
                 const updatedBooks = books.filter(b => b.id !== book.id);
-                // Update localStorage with the new books list
                 localStorage.setItem('books', JSON.stringify(updatedBooks));
-                // Remove the row from the table
                 row.remove();
             }
         });
 
-        // Append buttons to the last cell (actions cell)
         const actionCell = row.querySelector("td:last-child");
         actionCell.appendChild(editBtn);
         actionCell.appendChild(deleteBtn);
-
-        // Add the row to the table body
         tableBody.appendChild(row);
     });
 });

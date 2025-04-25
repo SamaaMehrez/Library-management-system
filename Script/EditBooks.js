@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("password") || !localStorage.getItem("status") ){
         window.location.href = "Error404.html";
     }
@@ -16,20 +15,15 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('edit-category').value = bookData.category;
     document.getElementById('edit-trending').value=bookData.trending ;
 
-
     if (bookData.trending !== undefined) {
         document.getElementById('edit-trending').value = bookData.trending ? 'Yes' : 'No';
     }
-
-
     if (bookData.image) {
         const previewDiv = document.createElement('div');
             document.getElementById('edit-book-cover').parentNode.appendChild(previewDiv);
-            }
-
+    }
             document.getElementById("edit-book-form").addEventListener("submit", function (event) {
                 event.preventDefault();
-
                 const bookId = document.getElementById("edit-book-id").value;
                 const bookName = document.getElementById("edit-book-name").value.trim();
                 const author = document.getElementById("edit-author").value.trim();
@@ -38,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const Availability = document.getElementById('edit-Available').value;
                 const trending = document.getElementById('edit-trending').value;
                 const imageInput = document.getElementById("edit-book-cover");
-
 
                 if (!bookName || !author || !category || !description || !trending) {
                 alert('Please fill all required fields');
@@ -75,5 +68,5 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 updateBookData();
             }
-            });
-            });
+       });
+});

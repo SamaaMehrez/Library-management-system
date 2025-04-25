@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("status") || !localStorage.getItem("status") ){
         const sign=document.getElementById('Acs');
         sign.innerHTML = 'Sign In';
@@ -14,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function displayTrendingBooks() {
     const slider = document.querySelector('.slider');
     const books = JSON.parse(localStorage.getItem('books')) || [];
-
-
     books.forEach(book => {
         if(book.trending==='No'){
             return;
@@ -51,7 +48,6 @@ function displayTrendingBooks() {
         const labelLink = document.createElement('a');
         labelLink.href = "BooksDetails.html#${book.id}";
         labelLink.appendChild(label);
-
         bookItem.appendChild(imgLink);
         bookItem.appendChild(labelLink);
         slider.appendChild(bookItem);
@@ -104,12 +100,9 @@ function displayBooks() {
     const books = JSON.parse(localStorage.getItem('books')) || [];
     const allBooksContainer = document.querySelector('.main');
     allBooksContainer.innerHTML = '';
-
     books.forEach(book => {
         const bookElement = document.createElement('div');
         bookElement.classList.add('Books');
-
-
         bookElement.style.display = 'flex';
         bookElement.style.flexDirection = 'column';
         bookElement.style.alignItems = 'center';
@@ -118,12 +111,9 @@ function displayBooks() {
         bookElement.style.maxWidth = 'calc(100% / 7 - 20px)';
         bookElement.style.boxSizing = 'border-box';
 
-
         const img = document.createElement('img');
         img.src = book.image;
         img.alt = book.name;
-
-
         img.style.width = '200px';
         img.style.height = '300px';
         img.style.borderRadius = '5px';
@@ -131,7 +121,6 @@ function displayBooks() {
         img.style.objectFit = 'cover';
         img.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
         img.style.transition = 'transform 0.3s ease';
-
 
         img.addEventListener('mouseenter', () => {
             img.style.transform = 'scale(1.1)';
@@ -147,8 +136,6 @@ function displayBooks() {
         const label = document.createElement('label');
         label.className = 'Books-label';
         label.textContent = book.name;
-
-
         label.style.display = 'block';
         label.style.marginTop = '-35px';
         label.style.fontSize = '21px';
@@ -199,7 +186,6 @@ function setupSearch() {
         filterBooks(searchTerm, searchType);
         allBooksSection.scrollIntoView({ behavior: 'smooth' });
     });
-
 
     searchInput.addEventListener('input', function () {
         const searchTerm = searchInput.value.toLowerCase().trim();

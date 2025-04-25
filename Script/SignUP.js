@@ -1,6 +1,5 @@
 document.getElementById('signupForm').addEventListener('submit', function (event) {
     event.preventDefault();
-
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const username = document.getElementById('username').value;
@@ -33,11 +32,8 @@ document.getElementById('signupForm').addEventListener('submit', function (event
     window.localStorage.setItem('loggedInUser', username);
     window.localStorage.setItem('status', status);
     window.localStorage.setItem('password', password);
-
     document.getElementById('errorMessage').innerText = 'Account created successfully!';
 
-
-//click sign up to go to the user or admin page
 if (document.getElementById('user').checked) {
     status = "User";
 } else if (document.getElementById('admin').checked) {

@@ -1,6 +1,4 @@
-
 document.addEventListener('DOMContentLoaded', function () {
-
     if(!localStorage.getItem("loggedInUser") ||! localStorage.getItem("password") || !localStorage.getItem("status") ){
         window.location.href = "Error404.html";
     }
@@ -33,7 +31,6 @@ function displayBooks(bookIds, allBooks, containerId) {
                 <a href="BooksDetails.html">
                     <img src="${book.image}" alt="${book.name}">
                 </a>
-
             `;
     
             // Add event listener to the link to store book data
