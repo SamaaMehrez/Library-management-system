@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account</title>
+  <link rel="stylesheet" href="{% static 'Styles/UserAccountStyle.css' %}">
+</head>
+<body>
+
+<div class="navbar">
+  <img class="image" src="{% static 'Images/logo.jpg' %}" alt="Logo">
+  <div class="tabs">
+    <span><a href="{% url 'user' %}">Home</a></span>
+    <span><a href="{% url 'index' %}#about">About</a></span>
+    <span><a href="{% url 'contact' %}">Contact us</a></span>
+    <span><a href="{% url 'logout' %}">Log out</a></span>
+  </div>
+</div>
+
+<div class="category-bar">
+  <span>Your Account</span>
+</div>
+
+<div class="bookshelf">
+
+  <!-- Favorite Books Shelf -->
+  <div class="shelf shelfFav" id="shelfFav">
+    {% for book in favorite_books %}
+      <div class="book">
+        <img src="{{ book.image.url }}" alt="{{ book.name }}">
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Borrowed Books Shelf -->
+  <div class="shelf shelfBorrowed" id="shelfBorrowed">
+    {% for book in borrowed_books %}
+      <div class="book">
+        <img src="{{ book.image.url }}" alt="{{ book.name }}">
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+</body>
+</html>
+
+

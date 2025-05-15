@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Book</title>
+  <link rel="stylesheet" href="{% static 'Styles/AddEditBooks.css' %}">
+{#  <script defer src="{% static 'Script/EditBooks.js' %}"></script>#}
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="{% url 'index' %}"><img class="image" src="{% static 'Images/logo.jpg' %}" alt="Website Logo"></a>
+  <div class="Navopt">
+    <a class="Navopt" id="Home" href="{% url 'admin_dashboard' %}">Home</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="section" id="Edit">
+    <h2>Edit Book</h2>
+
+    <form id="edit-book-form" method="post" enctype="multipart/form-data" action="{% url 'edit_book' book_id=book.book_id %}">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="edit-book-id">Book ID:</label>
+        <input type="text" id="edit-book-id" name="book-id" readonly value="{{ book.book_id }}">
+      </div>
+
+      <div class="form-group">
+        <label for="edit-book-name">Book Name:</label>
+        <input type="text" id="edit-book-name" name="book-name" required value="{{ book.name }}">
+      </div>
+
+      <div class="form-group">
+        <label for="edit-author">Author:</label>
+        <input type="text" id="edit-author" name="author" required value="{{ book.author }}">
+      </div>
+
+      <div class="form-group">
+        <label for="edit-category">Category:</label>
+        <select id="edit-category" name="category" required>
+          <option value="Fiction" {% if book.category == "Fiction" %}selected{% endif %}>Fiction</option>
+          <option value="Non-Fiction" {% if book.category == "Non-Fiction" %}selected{% endif %}>Non-Fiction</option>
+          <option value="Science" {% if book.category == "Science" %}selected{% endif %}>Science</option>
+          <option value="History" {% if book.category == "History" %}selected{% endif %}>History</option>
+          <option value="Biography" {% if book.category == "Biography" %}selected{% endif %}>Biography</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-description">Description:</label>
+        <textarea id="edit-description" name="description" rows="4" required>{{ book.description }}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-Available">Availability:</label>
+        <select id="edit-Available" name="Available" required>
+          <option value="Available" {% if book.Available == "Available" %}selected{% endif %}>Available</option>
+          <option value="Not Available" {% if book.Available == "Not Available" %}selected{% endif %}>Not Available</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-trending">Add to Trending Books:</label>
+        <select id="edit-trending" name="trending" required>
+          <option value="No" {% if book.trending == "No" %}selected{% endif %}>No</option>
+          <option value="Yes" {% if book.trending == "Yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="edit-book-cover">Book Cover:</label>
+        <input type="file" id="edit-book-cover" name="book-cover" accept="image/*">
+        <div id="current-cover-preview" style="margin-top: 10px;">
+{#          {% if book.cover %}#}
+{#            <img src="{{ book.cover.url }}" alt="Current Book Cover" width="100">#}
+{#          {% endif %}#}
+        </div>
+      </div>
+
+      <button type="submit">Update Book</button>
+      <a href="{% url 'admin_dashboard' %}" class="btn">Cancel</a>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

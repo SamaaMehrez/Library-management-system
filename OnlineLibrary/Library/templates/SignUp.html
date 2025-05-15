@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'Styles/SignupStyle.css' %}">
+    <script src="{% static 'Script/SignUP.js' %}" defer></script>
+</head>
+<body>
+<nav class="navbar">
+  <a href="{% url 'index' %}"><img class="image" src="{% static 'Images/logo.jpg' %}" alt="Logo"></a>
+  <div class="tabs">
+    <span><a href="{% url 'index' %}#about">About</a></span>
+    <span><a href="{% url 'contact' %}">Contact us</a></span>
+  </div>
+</nav>
+
+<form action="{% url 'signup' %}" method="post" class="login" id="signupForm">
+   {% csrf_token %}
+  <p class="title">Create New Account</p>
+   
+  <div class="inputs">
+
+    <label class="name">
+      <input type="text" name="username" placeholder="Username" id="username" required>
+    </label>
+    <br><br>
+
+    <label class="email">
+      <input type="email" name="email" placeholder="Email" id="email" required>
+    </label>
+    <br><br>
+
+    <label class="pass">
+      <input type="password" name="password" placeholder="Password" id="password" minlength="8" maxlength="12" required>
+    </label>
+    <br><br>
+
+    <label class="pass">
+      <input type="password" name="confirm_password" placeholder="Confirm Password" id="confirmPassword" minlength="8" maxlength="12" required>
+    </label>
+    <br><br>
+
+    <div>
+      <span>Choose your Role:</span>
+      <input id="admin" type="radio" name="userType" value="Admin" required>
+      <label for="admin">Admin</label>
+
+      <input id="user" type="radio" name="userType" value="User">
+      <label for="user">User</label>
+    </div>
+
+    <br>
+    <input type="submit" value="Sign Up">
+  </div>
+
+  <div class="error">
+    <span id="errorMessage"></span>
+  </div>
+{% if error %}
+      <div style="color: red; text-align: center; margin-bottom: 10px;">
+        {{ error }}
+      </div>
+    {% endif %}
+  <div class="end">
+    <span>Already have an account? </span>
+    <a href="{% url 'login' %}"><span>Log in</span></a>
+  </div>
+</form>
+</body>
+</html>
