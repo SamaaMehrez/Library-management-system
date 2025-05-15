@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Books</title>
+  <link rel="stylesheet" href="{% static 'Styles/AddEditBooks.css' %}">
+  <script src="{% static 'Script/AddBooks.js' %}"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="{% url 'index' %}"><img class="image" src="{% static 'Images/logo.jpg' %}" alt="Website Logo"></a>
+  <div class="Navopt">
+    <a class="Navopt" id="Home" href="{% url 'admin_dashboard' %}">Home</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Add New Book</h2>
+  <div class="section" id="Add">
+    <form id="add-book-form" method="post" enctype="multipart/form-data" action="{% url 'add_books' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="book-id">Book ID:</label>
+        <input type="text" id="book-id" name="book-id" required>
+      </div>
+      <div class="form-group">
+        <label for="book-name">Book Name:</label>
+        <input type="text" id="book-name" name="book-name" required>
+      </div>
+      <div class="form-group">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required>
+      </div>
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="">Select Category</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Science">Science</option>
+          <option value="History">History</option>
+          <option value="Biography">Biography</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="Available">Availability:</label>
+        <select id="Available" name="Available" required>
+          <option value="Available">Available</option>
+          <option value="Not Available">Not Available</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="trending">Add to Trending Books:</label>
+        <select id="trending" name="trending" required>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="book-cover">Book Cover:</label>
+        <input type="file" id="book-cover" name="book-cover" accept="image/*" required>
+      </div>
+        {% if error %}
+      <div style="color: red; text-align: center; margin-bottom: 10px;">
+        {{ error }}
+      </div>
+    {% endif %}
+      <button type="submit">Add Book</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

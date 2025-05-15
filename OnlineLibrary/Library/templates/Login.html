@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  
+  <!-- ✅ الربط الصحيح بملفات CSS و JS -->
+  <link rel="stylesheet" href="{% static 'Styles/LoginStyle.css' %}">
+  <script src="{% static 'Script/Login.js' %}" defer></script>
+
+</head>
+<body>
+<nav class="navbar">
+  
+  <a href="{% url 'index' %}"><img class="image" src="{% static 'Images/logo.jpg' %}" alt="logo"></a>
+  
+  <div class="tabs">
+    <span><a href="{% url 'index' %}#about">About</a></span>
+    <span><a href="{% url 'contact' %}">Contact us</a></span>
+  </div>
+</nav>
+
+<form action="" method="post" class="login">
+  {% csrf_token %}
+  <p class="title">Log in to Books Corner</p>
+
+  <div>
+    <label class="email">
+      <input type="email" name="email" placeholder="Email" required id="email">
+    </label>
+    <br><br>
+
+    <label class="pass">
+      <input type="password" name="password" placeholder="Password" minlength="8" maxlength="12" required id="password">
+    </label>
+    <br><br>
+
+    <div>
+      <span>Choose your Role:</span>
+      <input id="admin" type="radio" name="userType" value="Admin" required>
+      <label for="admin">Admin</label>
+
+      <input id="user" type="radio" name="userType" value="User">
+      <label for="user">User</label>
+    </div>
+
+    <br>
+    <input type="submit" value="Log in" id="submit">
+  </div>
+
+  <div class="error">
+    <span id="errorMessage"></span>
+  </div>
+  {% if error %}
+  <p id="errorMessage">{{ error }}</p>
+{% endif %}
+
+  <div class="end">
+    <span>Don't have an account? </span>
+    <a href="{% url 'signup' %}"><span>Sign up</span></a>
+  </div>
+</form>
+
+</body>
+</html>
+
