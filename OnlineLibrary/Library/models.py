@@ -28,3 +28,6 @@ class Book(models.Model):
         default="No"
     )
     cover = models.ImageField(upload_to='book_covers/')
+
+
+

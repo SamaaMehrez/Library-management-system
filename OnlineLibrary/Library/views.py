@@ -6,7 +6,7 @@ from .models import Members
 
 from .models import Book
 from django.core.files.storage import FileSystemStorage
-
+from django.contrib.auth.decorators import login_required
 
 def add_books(request):
     if request.method == 'POST':
@@ -121,17 +121,22 @@ def book_details(request, id):
 def contact(request):
     return render(request, 'ContactUs.html')
 
-
+def errorMessage(request):
+    return render(request, 'Error404.html')
 def user_dashboard(request):
+    if 'userType' not in request.session:
+        return redirect('errorMessage')
     return render(request, 'UserAccount.html')
 
-
 def admin_dashboard(request):
+    if request.session.get('userType') == 'user' or 'userType' not in request.session:
+        return redirect('errorMessage')
     books = Book.objects.all()
     return render(request, 'Admin.html', {'books': books})
 
 
 def logout_view(request):
+    request.session.flush()
     return render(request, 'Home.html')
 
 
@@ -157,9 +162,11 @@ def login(request):
         request.session['userType'] = user.userType.lower()
 
         # توجيه المستخدم بناءً على نوعه
+        
         if user.userType.lower() == 'admin':
             return redirect('admin_dashboard')  # أو استخدم redirect
         else:
             return redirect('user')  # أو redirect
 
     return render(request, 'Login.html')
+
