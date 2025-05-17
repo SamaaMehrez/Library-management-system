@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
+    updateAuthUI();
     setupSlider();
     setupSearch();
 });
+
 
 function setupSlider() {
     const slider = document.querySelector('.slider');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     let scrollAmount = 0;
-    const scrollStep = 200; // Adjust if needed
+    const scrollStep = 200; 
 
     nextBtn.addEventListener('click', () => {
         const maxScroll = slider.scrollWidth - slider.clientWidth;
@@ -57,4 +59,37 @@ function setupSearch() {
 
     searchBtn.addEventListener('click', performSearch);
     searchInput.addEventListener('input', performSearch);
+}
+async function isUserAuthenticated() {
+    try {
+        const response = await fetch('/userAuthnticated/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+
+        const data = await response.json();
+        return data.authenticated === true;
+
+    } catch (error) {
+        console.error('Error during authentication check:', error);
+        return false;  
+    }
+}
+async function updateAuthUI() {
+    const isAuth = await isUserAuthenticated();
+    const sign=document.getElementById("Acs");
+    const loginUrl = sign.dataset.loginUrl;
+    const dashboardUrl = sign.dataset.dashboardUrl;
+    if (!isAuth) {
+        const sign=document.getElementById('Acs');
+        sign.innerHTML = 'Sign In';
+        sign.href = loginUrl;
+        console.log('User is not authenticated');
+    }
+    else{
+        const sign=document.getElementById('Acs');
+        sign.href = dashboardUrl;
+    }
 }

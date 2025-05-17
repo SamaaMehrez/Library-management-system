@@ -1,24 +1,49 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books Details</title>
-    <link rel="stylesheet" href="{% static 'Styles/BooksDetailsStyle.css'  %}">
-    <script src="{% static 'Script/BookDetails.js' %}"></script>
-
+    <link rel="stylesheet" href="{% static 'Styles/BooksDetailsStyle.css' %}">
+    <script src="{% static 'Script/BookDetails.js' %}" defer></script>
 </head>
 <body>
-<nav class="navbar">
-    <a href="Home.html"><img class="image" src="{% static 'Images/logo.jpg' %}" alt="logo"></a>
+    <nav class="navbar">
+        <a href="{% url 'user' %}"><img class="image" src="{% static 'Images/logo.jpg' %}" alt="logo"></a>
+        <div>
+            <a class="Navopt" id="Home" href="{% url 'user' %}">Home</a>
+            <a class="Navopt" id="Acs" data-login-url="{% url 'login' %}" data-dashboard-url="{% url 'user_dashboard' %}"> My Account </a>
+        </div>
+    </nav>
 
-    <a class="Navopt" id="Acs" href="{% url 'user_dashboard' %}">My Account</a>
-    <a class="Navopt" id="Home" href="{% url 'user' %}">Home</a>
-</nav>
+    <div id="books-container" class="books-grid">
+        <div class="book-card">
+            <img src="{{ book.cover.url }}" alt="Book Cover" class="book-image">
+            
+            <div class="book-details">
+                <h3>{{ book.name }}</h3>
+                <p id="Book-id"><strong>ID: </strong>{{book.book_id}}</p>
+                <p><strong>Author:</strong> {{ book.author }}</p>
+                <p><strong>Category:</strong> {{ book.category }}</p>
+                <p><strong>Description:</strong> {{ book.description }}</p>
+                <p class="Available"><strong>Availability:</strong> {{ book.availability }}</p>
+                
+                <div class="button-group">
+                    <button class="borrow-btn" id="borrow">Borrow</button>
+                    <form id="AddToFavorites" method="post" action="{% url 'add_to_favorites' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="Book-id" value="{{ book.book_id }}">
+                        <button type="submit" class="like-btn" id="fav-btn">
+                            <img src="{% static 'Images/like.png' %}" alt="Like" style="width:20px;">
+                            <p id="'Ermessage">{{msg}}</p>
+                        </button>
+                    </form>
 
-<div id="books-container" class="books-grid"></div>
-
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

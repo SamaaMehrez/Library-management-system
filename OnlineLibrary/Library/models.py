@@ -29,5 +29,9 @@ class Book(models.Model):
     )
     cover = models.ImageField(upload_to='book_covers/')
 
+class Favorite(models.Model):
+    email = models.CharField(max_length=255,)
+    book_id = models.CharField(max_length=50,)
 
-
+    class Meta:
+        unique_together = ('email', 'book_id')  # prevent duplicates

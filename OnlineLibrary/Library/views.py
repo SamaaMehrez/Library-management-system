@@ -5,8 +5,13 @@ from django.shortcuts import render, redirect
 from .models import Members
 
 from .models import Book
+from .models import Favorite
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+
+from django.views.decorators.csrf import csrf_exempt
+
 
 def add_books(request):
     if request.method == 'POST':
@@ -39,6 +44,7 @@ def add_books(request):
         if Book.objects.filter(book_id=book_id).exists():
             return render(request, 'AddBooks.html', {'error': 'The Book already exists.'})
         book.save()
+        print(book)
         return redirect('admin_dashboard')
 
         # Redirect to same page or another success page
@@ -115,9 +121,10 @@ def user(request):
     })
 
 
-def book_details(request, id):
-    book = get_object_or_404(Book, id=id)
-    return render(request, 'BooksDetails.html', {'book': book})
+def book_details(request,book_id):
+    book = get_object_or_404(Book, book_id=book_id)
+    return render(request, 'BooksDetails.html',{'book': book})
+
 def contact(request):
     return render(request, 'ContactUs.html')
 
@@ -160,6 +167,8 @@ def login(request):
 
         # حفظ نوع المستخدم في السيشن
         request.session['userType'] = user.userType.lower()
+        request.session['email'] = user.email
+        request.session['password'] = user.password
 
         # توجيه المستخدم بناءً على نوعه
         
@@ -170,3 +179,31 @@ def login(request):
 
     return render(request, 'Login.html')
 
+
+
+@csrf_exempt
+def userAuthnticated(request):
+    if 'userType' in request.session:
+        return JsonResponse({'authenticated': True})
+    else:
+        return JsonResponse({'authenticated': False})
+
+
+def add_to_favorites(request):
+    if request.method == "POST":
+        bookId=request.POST.get('Book-id')
+        print(bookId)
+        email=request.session.get('email')
+        fav = Favorite(
+            email=email,
+            book_id=bookId
+        )
+        if Favorite.objects.filter(email=email, book_id=bookId).exists():
+            fav = Favorite.objects.get(email=email, book_id=bookId)
+            fav.delete()
+        fav.save()
+        print(fav)
+        return redirect('user_dashboard')
+
+
+    return JsonResponse({"error": "Invalid request"}, status=400)

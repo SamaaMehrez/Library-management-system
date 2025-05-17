@@ -13,8 +13,9 @@ urlpatterns = [
     path('addbooks/', views.add_books, name='add_books'),
     path('editbooks/<str:book_id>/', views.edit_book, name='edit_book'),
     path('deletebooks/<str:book_id>/', views.delete_book, name='delete_book'),
-    path('book/<int:id>/', views.book_details, name='book_details'),
+    path('book/<str:book_id>/', views.book_details, name='book_details'),
     path('Error/', views.errorMessage, name='errorMessage'),
-
-
+    path('userAuthnticated/', views.userAuthnticated, name='user_authenticated'),
+    path('add_to_favorites/', views.add_to_favorites, name='add_to_favorites'),
 ]
+
