@@ -200,7 +200,9 @@ def add_to_favorites(request):
         )
         if Favorite.objects.filter(email=email, book_id=bookId).exists():
             fav = Favorite.objects.get(email=email, book_id=bookId)
+            ##now lets delete it from the database
             fav.delete()
+            return redirect('user_dashboard')
         fav.save()
         print(fav)
         return redirect('user_dashboard')
