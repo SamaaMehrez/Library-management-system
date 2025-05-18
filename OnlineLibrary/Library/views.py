@@ -133,9 +133,8 @@ def book_details(request,book_id,msg=""):
     if BorrowedBooks.objects.filter(email=email, book_id=book_id).exists() and Favorite.objects.filter(email=email, book_id=book_id).exists():
         msg="Book already borrowed and in favorites."
         return render(request, 'BooksDetails.html',{'book': book, 'msg': msg})
-    if Favorite.objects.filter(email=email, book_id=book_id).exists():
+    if Favorite.objects.filter(email=email, book_id=book_id).exists() and msg!= "Book not available.":
         msg="Book already in favorites."
-
         return render(request, 'BooksDetails.html',{'book': book, 'msg': msg})
     if BorrowedBooks.objects.filter(email=email, book_id=book_id).exists():
         msg="Book already borrowed."
