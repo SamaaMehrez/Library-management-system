@@ -248,13 +248,14 @@ def borrow_book(request):
         if BorrowedBooks.objects.filter(email=email, book_id=book_id).exists():
             msg="Book already borrowed."
             return redirect('user_dashboard')
-        TheBook = Book.objects.get(book_id=book_id)
+        TheBook = get_object_or_404(Book, book_id=book_id)
         print(TheBook.availability)
         if TheBook.availability == "Not Available":
             msg="Book not available."
             return book_details(request, book_id=request.POST.get('Book-id'), msg=msg)
         TheBook.availability = "Not Available"
         borrowed_book.save()
+        TheBook.save()
         return redirect('user_dashboard')
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
