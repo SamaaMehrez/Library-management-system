@@ -254,7 +254,7 @@ def borrow_book(request):
         if TheBook.availability == "Not Available":
             msg="Book not available."
             return book_details(request, book_id=request.POST.get('Book-id'), msg=msg)
-
+        TheBook.availability = "Not Available"
         borrowed_book.save()
         return redirect('user_dashboard')
     return JsonResponse({'error': 'Invalid request'}, status=400)
