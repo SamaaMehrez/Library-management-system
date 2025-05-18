@@ -27,17 +27,23 @@
                 <p><strong>Author:</strong> {{ book.author }}</p>
                 <p><strong>Category:</strong> {{ book.category }}</p>
                 <p><strong>Description:</strong> {{ book.description }}</p>
-                <p class="Available"><strong>Availability:</strong> {{ book.availability }}</p>
+                <p class="Available" id="BookA"><strong>Availability:</strong> {{ book.availability }}</p>
                 
                 <div class="button-group">
-                    <button class="borrow-btn" id="borrow">Borrow</button>
+                    <form id="borrow-form" method="post" action="{% url 'borrow_book' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="Book-id" value="{{ book.book_id }}">
+                        <button class="borrow-btn" id="borrow" type="submit">Borrow</button>
+                        <p id="BErrormsg">{{fmsg}}</p>
+                    </form>
                     <form id="AddToFavorites" method="post" action="{% url 'add_to_favorites' %}">
                         {% csrf_token %}
                         <input type="hidden" name="Book-id" value="{{ book.book_id }}">
                         <button type="submit" class="like-btn" id="fav-btn">
                             <img src="{% static 'Images/like.png' %}" alt="Like" style="width:20px;">
-                            <p id="'Ermessage">{{msg}}</p>
+                           
                         </button>
+                         <p id="'Ermessage">{{msg}}</p>
                     </form>
 
                 </div>

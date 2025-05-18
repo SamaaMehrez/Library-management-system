@@ -17,5 +17,6 @@ urlpatterns = [
     path('Error/', views.errorMessage, name='errorMessage'),
     path('userAuthnticated/', views.userAuthnticated, name='user_authenticated'),
     path('add_to_favorites/', views.add_to_favorites, name='add_to_favorites'),
+    path('borrow_books/', views.borrow_book, name='borrow_book'),
 ]
 

@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
+from datetime import timedelta
 
 
 # Create your models here.
@@ -34,4 +35,20 @@ class Favorite(models.Model):
     book_id = models.CharField(max_length=50,)
 
     class Meta:
-        unique_together = ('email', 'book_id')  # prevent duplicates
+        unique_together = ('email', 'book_id')
+
+class BorrowedBooks(models.Model):
+    email = models.CharField(max_length=255)
+    book_id = models.CharField(max_length=50)
+    borrow_date = models.DateField(auto_now_add=True)
+    return_date = models.DateField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        # Set return date only if it's not already set
+        if not self.pk or not self.return_date:
+            # Make sure borrow_date is set before using it
+            if not self.borrow_date and self.pk is None:
+                from django.utils import timezone
+                self.borrow_date = timezone.now().date()
+            self.return_date = self.borrow_date + timedelta(days=7)
+        super().save(*args, **kwargs)

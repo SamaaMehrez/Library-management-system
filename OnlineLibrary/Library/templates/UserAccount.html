@@ -25,20 +25,19 @@
 
 <div class="bookshelf">
 
-  <!-- Favorite Books Shelf -->
   <div class="shelf shelfFav" id="shelfFav">
-    {% for book in favorite_books %}
+    {% for book in Favourite %}
       <div class="book">
-        <img src="{{ book.image.url }}" alt="{{ book.name }}">
+        <a  href="{% url 'book_details' book.book_id %}"><img src="{{ book.cover.url }}" alt="{{ book.name }}"></a>
       </div>
     {% endfor %}
   </div>
 
   <!-- Borrowed Books Shelf -->
   <div class="shelf shelfBorrowed" id="shelfBorrowed">
-    {% for book in borrowed_books %}
+    {% for book in Borrowed %}
       <div class="book">
-        <img src="{{ book.image.url }}" alt="{{ book.name }}">
+         <a  href="{% url 'book_details' book.book_id %}"><img src="{{ book.cover.url }}" alt="{{ book.name }}"></a>
       </div>
     {% endfor %}
   </div>

@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from .models import Members
 
 from .models import Book
-from .models import Favorite
+from .models import Favorite, BorrowedBooks
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -98,7 +98,8 @@ def signup(request):
 
         # حفظ نوع المستخدم في الجلسة
         request.session['userType'] = userType.lower()
-
+        request.session['email'] = user.email
+        request.session['password'] = user.password
         # عرض صفحة الـ Dashboard مباشرة بدلاً من redirect
         if userType.lower() == 'admin':
             return redirect('admin_dashboard')  # بدلاً من redirect
@@ -121,9 +122,26 @@ def user(request):
     })
 
 
-def book_details(request,book_id):
+def book_details(request,book_id,msg=""):
     book = get_object_or_404(Book, book_id=book_id)
-    return render(request, 'BooksDetails.html',{'book': book})
+    email=request.session.get('email')
+    fav = Favorite(
+            email=email,
+            book_id=book_id
+        )
+    
+    if BorrowedBooks.objects.filter(email=email, book_id=book_id).exists() and Favorite.objects.filter(email=email, book_id=book_id).exists():
+        msg="Book already borrowed and in favorites."
+        return render(request, 'BooksDetails.html',{'book': book, 'msg': msg})
+    if Favorite.objects.filter(email=email, book_id=book_id).exists():
+        msg="Book already in favorites."
+
+        return render(request, 'BooksDetails.html',{'book': book, 'msg': msg})
+    if BorrowedBooks.objects.filter(email=email, book_id=book_id).exists():
+        msg="Book already borrowed."
+        return render(request, 'BooksDetails.html',{'book': book, 'msg': msg})
+    return render(request, 'BooksDetails.html',{'book': book, 'msg': msg})
+
 
 def contact(request):
     return render(request, 'ContactUs.html')
@@ -190,17 +208,21 @@ def userAuthnticated(request):
 
 
 def add_to_favorites(request):
+
     if request.method == "POST":
+        if 'email' not in request.session:
+            msg="You are not a user, Please login"
+            print(msg)
+            return book_details(request, book_id=request.POST.get('Book-id'), msg=msg)
         bookId=request.POST.get('Book-id')
-        print(bookId)
         email=request.session.get('email')
         fav = Favorite(
             email=email,
             book_id=bookId
         )
         if Favorite.objects.filter(email=email, book_id=bookId).exists():
+            msg="Book already in favorites."
             fav = Favorite.objects.get(email=email, book_id=bookId)
-            ##now lets delete it from the database
             fav.delete()
             return redirect('user_dashboard')
         fav.save()
@@ -209,3 +231,48 @@ def add_to_favorites(request):
 
 
     return JsonResponse({"error": "Invalid request"}, status=400)
+
+
+def borrow_book(request):
+    if request.method == "POST":
+        book_id=request.POST.get('Book-id')
+        email = request.session.get('email')
+        if 'email' not in request.session:
+            msg="You are not a user, Please login"
+            print(msg)
+            return book_details(request, book_id=request.POST.get('Book-id'), msg=msg)
+    
+        borrowed_book = BorrowedBooks(
+            email=email,
+            book_id=book_id
+        )
+        if BorrowedBooks.objects.filter(email=email, book_id=book_id).exists():
+            msg="Book already borrowed."
+            return redirect('user_dashboard')
+        TheBook = Book.objects.get(book_id=book_id)
+        print(TheBook.availability)
+        if TheBook.availability == "Not Available":
+            msg="Book not available."
+            return book_details(request, book_id=request.POST.get('Book-id'), msg=msg)
+
+        borrowed_book.save()
+        return redirect('user_dashboard')
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+
+def user_dashboard(request):
+    if 'userType' not in request.session:
+        return redirect('errorMessage')
+    favbooks = Favorite.objects.filter(email=request.session.get('email'))
+    borrowed_books = BorrowedBooks.objects.filter(email=request.session.get('email'))
+    borrowed_books_list = []
+    for borrowed_book in borrowed_books:
+        book = Book.objects.get(book_id=borrowed_book.book_id)
+        borrowed_books_list.append(book)
+    favourite_books_list = []
+    for favbook in favbooks:
+        book = Book.objects.get(book_id=favbook.book_id)
+        favourite_books_list.append(book)
+    return render(request, 'UserAccount.html', {
+        'Borrowed': borrowed_books_list,
+        'Favourite': favourite_books_list,
+    })
