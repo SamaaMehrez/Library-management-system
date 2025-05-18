@@ -98,8 +98,8 @@ def signup(request):
 
         # حفظ نوع المستخدم في الجلسة
         request.session['userType'] = userType.lower()
-        request.session['email'] = user.email
-        request.session['password'] = user.password
+        request.session['email'] = email
+        request.session['password'] = password
         # عرض صفحة الـ Dashboard مباشرة بدلاً من redirect
         if userType.lower() == 'admin':
             return redirect('admin_dashboard')  # بدلاً من redirect
@@ -220,7 +220,7 @@ def add_to_favorites(request):
             book_id=bookId
         )
         if Favorite.objects.filter(email=email, book_id=bookId).exists():
-            msg="Book already in favorites."
+            msg="Book already in favourites."
             fav = Favorite.objects.get(email=email, book_id=bookId)
             fav.delete()
             return redirect('user_dashboard')
